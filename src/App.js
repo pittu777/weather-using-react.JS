@@ -35,6 +35,7 @@ function App(){
   console.log(forcast)
   return(
     <div >
+      <h1>madeByPittu</h1>
       <Search onSearchChange={handleOnSearchChange}/>
 
       { currentweather && <CurrentWeather data={currentweather}/>}
