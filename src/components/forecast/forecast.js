@@ -1,34 +1,56 @@
-import {Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, AccordionItemPanel}from "react-accessible-accordion"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemButton,
+  AccordionItemHeading,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
 
-import "./forecast.css"
-const WEEK_DAYS=["Monday", "Tuesday", "Wednesday", "ThursDay", "Friday", "Saturday", "Sunday"];
+import "./forecast.css";
+const WEEK_DAYS = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "ThursDay",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
-const Forecast=({data})=>{
-    const dayInAweek=new Date().getDay();
-    const forecatDays=WEEK_DAYS.slice(dayInAweek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0,dayInAweek));
-    console.log(forecatDays)
-    return (
-        
-        
-        <>
-  <label className="title">Daily label</label>
-  <Accordion allowZeroExpanded>
-    {data.list.splice(0, 7).map((item, idx) => (
-      <AccordionItem key={idx}>
-        <AccordionItemHeading>
-          <AccordionItemButton>
-            <div className="daily-item">
-                <img src={`icons/${item.weather[0].icon}.png`} className="icon-small" alt="weather" />
-                <label className="day">{forecatDays[idx]}</label>
-                <label className="discription">{item.weather[0].description}</label>
-                <label className="min-max">
-                    {Math.round(item.main.temp_min)}°C/ {" "}
-                    {Math.round(item.main.temp_max)}°C</label>
-            </div>
-          </AccordionItemButton>
-        </AccordionItemHeading>
-        <AccordionItemPanel>
-        <div className="daily-details-grid">
+// const Forecast=({data})=>{
+function Forecast({ data }) {
+  const dayInAweek = new Date().getDay();
+  const forecatDays = WEEK_DAYS.slice(dayInAweek, WEEK_DAYS.length).concat(
+    WEEK_DAYS.slice(0, dayInAweek)
+  );
+  console.log(forecatDays);
+  return (
+    <>
+      <label className="title">Daily label</label>
+      <Accordion allowZeroExpanded>
+        {data.list.splice(0, 7).map((item, idx) => (
+          <AccordionItem key={idx}>
+            <AccordionItemHeading>
+              <AccordionItemButton>
+                <div className="daily-item">
+                  <img
+                    src={`icons/${item.weather[0].icon}.png`}
+                    className="icon-small"
+                    alt="weather"
+                  />
+                  <label className="day">{forecatDays[idx]}</label>
+                  <label className="discription">
+                    {item.weather[0].description}
+                  </label>
+                  <label className="min-max">
+                    {Math.round(item.main.temp_min)}°C/{" "}
+                    {Math.round(item.main.temp_max)}°C
+                  </label>
+                </div>
+              </AccordionItemButton>
+            </AccordionItemHeading>
+            <AccordionItemPanel>
+              <div className="daily-details-grid">
                 <div className="daily-details-grid-item">
                   <label>Pressure:</label>
                   <label>{item.main.pressure}</label>
@@ -54,14 +76,11 @@ const Forecast=({data})=>{
                   <label>{item.main.feels_like}°C</label>
                 </div>
               </div>
-        </AccordionItemPanel>
-      </AccordionItem>
-    ))}
-  </Accordion>
-
-
-        </>
-    );
+            </AccordionItemPanel>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </>
+  );
 }
 export default Forecast;
-
