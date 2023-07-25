@@ -4,7 +4,15 @@ import "./forecast.css";
 
 function Forecast({ data }) {
   const currentDayIndex = new Date().getDay();
-  const allWeekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const allWeekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   // Replace the current day with "Today" in the forecatDays array.
   const forecatDays = [
