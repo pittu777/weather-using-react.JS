@@ -82,7 +82,9 @@ const fetchTimeZone = (latitude, longitude, apiKey) => {
 };
 
 const fetchCurrentTime = (timezone) => {
-  const currentTime = new Date().toLocaleString("en-US", { timeZone: timezone });
+  const currentTime = new Date().toLocaleString("en-US", {
+    timeZone: timezone,
+  });
   return currentTime;
 };
 
