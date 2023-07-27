@@ -2,6 +2,15 @@ import "./current-weather.css";
 
 function CurrentWeather({ data }) {
   // const CurrentWeather=({data})=>{
+
+  const getTimeZoneOffset = (timezoneInSeconds) => {
+    const offsetHours = Math.floor(timezoneInSeconds / 3600);
+    const offsetMinutes = Math.abs(Math.floor((timezoneInSeconds % 3600) / 60));
+  
+    const sign = offsetHours >= 0 ? '+' : '-';
+    return `${sign}${Math.abs(offsetHours)}:${String(offsetMinutes).padStart(2, '0')}`;
+  };
+  
   return (
     <div className="weather">
       <div className="top">
@@ -30,6 +39,23 @@ function CurrentWeather({ data }) {
           <div className="parameter-row">
             <span className="parameter-label">Wind</span>
             <span className="parameter-value">{data.wind.speed} m/s</span>
+          </div>
+          <div className="parameter-row">
+            <span className="parameter-label">timezone</span>
+            <span className="parameter-value">{getTimeZoneOffset(data.timezone)} UTC</span>
+          </div>
+          <div className="parameter-row">
+            <span className="parameter-label">sunrise</span>
+            <span className="parameter-value">
+            {new Date(data.sys.sunrise * 1000).toLocaleTimeString()}
+            </span>
+          </div>
+
+          <div className="parameter-row">
+            <span className="parameter-label">sunset</span>
+            <span className="parameter-value">
+            {new Date(data.sys.sunset * 1000).toLocaleTimeString()}
+            </span>
           </div>
           <div className="parameter-row">
             <span className="parameter-label">Humidity</span>
