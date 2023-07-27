@@ -6,7 +6,6 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
-
   const loadOptions = (inputValue) => {
     return fetch(
       `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${inputValue}`,
@@ -33,8 +32,8 @@ const Search = ({ onSearchChange }) => {
     setIsOnline(navigator.onLine);
   };
 
-   // Add event listener to check online status changes.
-   React.useEffect(() => {
+  // Add event listener to check online status changes.
+  React.useEffect(() => {
     window.addEventListener("online", handleOnlineStatusChange);
     window.addEventListener("offline", handleOnlineStatusChange);
 
@@ -43,20 +42,24 @@ const Search = ({ onSearchChange }) => {
       window.removeEventListener("offline", handleOnlineStatusChange);
     };
   }, []);
+  // end of useEffect
 
   return (
     <>
-    {!isOnline && <p style={{textAlign:"center", marginTop:"0px"}}>No Internet</p>}
-    <AsyncPaginate
-      placeholder="Search for city"
-      debounceTimeout={600}
-      value={search}
-      onChange={handleOnChange}
-      loadOptions={loadOptions}
-      isDisabled={!isOnline}
-    />
+      {!isOnline && (
+        <p style={{ textAlign: "center", marginTop: "0px" }}>No Internet</p>
+      )}
+      <AsyncPaginate
+        placeholder="Search for city"
+        debounceTimeout={600}
+        value={search}
+        onChange={handleOnChange}
+        loadOptions={loadOptions}
+        isDisabled={!isOnline}
+      />
     </>
   );
 };
 
 export default Search;
+

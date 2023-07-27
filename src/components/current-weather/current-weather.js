@@ -33,7 +33,7 @@ function CurrentWeather({ data }) {
           </div>
           <div className="parameter-row">
             <span className="parameter-label">Humidity</span>
-            <span className="parameter-value">{data.main.humidity}</span>
+            <span className="parameter-value">{data.main.humidity}%</span>
           </div>
           <div className="parameter-row">
             <span className="parameter-label">Pressure</span>
