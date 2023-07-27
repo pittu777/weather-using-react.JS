@@ -1,0 +1,20 @@
+/* .input{
+    width: 300px;
+    margin-left: 47px;
+} */
+
+/* Custom styles for the AsyncPaginate input */
+.input {
+    width: 100%; /* Adjust the width as desired */
+    margin: 5px auto; /* Margin on top and bottom, auto left and right */
+    max-width: 1024px; /* Optional: Set a maximum width */
+  }
+  
+  /* Media query for smaller devices */
+  @media only screen and (max-width: 767px) {
+    .input {
+      width: 70%; /* Adjust the width for smaller devices */
+    }
+  }
+  
+  
