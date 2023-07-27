@@ -63,11 +63,13 @@
 
 // export default Search;
 
+// Search.js
+
 import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
-import { geoApiOptions, GEO_API_URL } from "../../Api";
+import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 
-const fetchTimeZone = (latitude, longitude, apiKey) => {
+const fetchTimeZone = (latitude, longitude) => {
   const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${latitude}&lng=${longitude}`;
 
   return fetch(apiUrl)
@@ -117,8 +119,7 @@ const Search = ({ onSearchChange }) => {
     // Assuming the selected value is in the format "latitude longitude"
     const [latitude, longitude] = searchData.value.split(" ");
     try {
-      const apiKey = "KKNZQA72672O"; // Replace with your actual TimezoneDB API key
-      const timezone = await fetchTimeZone(latitude, longitude, apiKey);
+      const timezone = await fetchTimeZone(latitude, longitude);
       const currentTime = await fetchCurrentTime(timezone);
       setSearchTime(currentTime);
       onSearchChange(searchData);
