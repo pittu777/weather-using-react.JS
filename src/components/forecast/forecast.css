@@ -10,7 +10,7 @@
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  padding-bottom: 40%;
+  padding-bottom: 40%; /* Default height for the map */
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -36,7 +36,6 @@
 }
 
 .attribution-container p {
-  
   text-decoration: none;
   margin-right: 10px;
 }
@@ -52,6 +51,7 @@
 @media only screen and (max-width: 767px) {
   .map-container {
     margin: 0 10px; /* Add left and right margin to create space on mobile devices */
+    padding-bottom: 60%; /* Increase the height of the map in mobile devices */
   }
 
   .attribution-container {
