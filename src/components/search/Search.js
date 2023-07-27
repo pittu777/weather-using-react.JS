@@ -69,19 +69,19 @@ import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 
-const fetchTimeZone = (latitude, longitude) => {
-  const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${latitude}&lng=${longitude}`;
+// const fetchTimeZone = (latitude, longitude) => {
+//   const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${latitude}&lng=${longitude}`;
 
-  return fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status === "OK") {
-        return data.zoneName;
-      } else {
-        throw new Error("Failed to fetch time zone data");
-      }
-    });
-};
+//   return fetch(apiUrl)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       if (data.status === "OK") {
+//         return data.zoneName;
+//       } else {
+//         throw new Error("Failed to fetch time zone data");
+//       }
+//     });
+// };
 
 const fetchCurrentTime = (timezone) => {
   const currentTime = new Date().toLocaleString("en-US", {
@@ -110,6 +110,19 @@ const Search = ({ onSearchChange }) => {
             };
           }),
         };
+      });
+  };
+  const fetchTimeZone = (latitude, longitude) => {
+    const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${latitude}&lng=${longitude}`;
+  
+    return fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "OK") {
+          return data.zoneName;
+        } else {
+          throw new Error("Failed to fetch time zone data");
+        }
       });
   };
 
