@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
-import "./search.css"
+import "./search.css";
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
-  const [weatherDataLoaded, setWeatherDataLoaded] = useState(false); // New state
 
   console.log(searchTime);
 
@@ -56,14 +55,10 @@ const Search = ({ onSearchChange }) => {
     // Assuming the selected value is in the format "latitude longitude"
     const [latitude, longitude] = searchData.value.split(" ");
     try {
+      const timezone = await fetchTimeZone(latitude, longitude);
+      const currentTime = await fetchCurrentTime(timezone);
+      setSearchTime(currentTime);
       onSearchChange(searchData);
-      if (!weatherDataLoaded) {
-        // Fetch time data only if weather data has not been loaded
-        const timezone = await fetchTimeZone(latitude, longitude);
-        const currentTime = await fetchCurrentTime(timezone);
-        setSearchTime(currentTime);
-        setWeatherDataLoaded(true);
-      }
     } catch (error) {
       console.error("Error fetching time data:", error);
     }
@@ -95,7 +90,7 @@ const Search = ({ onSearchChange }) => {
         </p>
       )}
       <AsyncPaginate
-      className="input"
+        className="input"
         placeholder="Search for city"
         debounceTimeout={600}
         value={search}
