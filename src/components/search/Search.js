@@ -6,8 +6,9 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
+  const [weatherDataLoaded, setWeatherDataLoaded] = useState(false); // New state
 
-  console.log(searchTime)
+  console.log(searchTime);
 
   const loadOptions = (inputValue) => {
     return fetch(
@@ -54,10 +55,14 @@ const Search = ({ onSearchChange }) => {
     // Assuming the selected value is in the format "latitude longitude"
     const [latitude, longitude] = searchData.value.split(" ");
     try {
-      const timezone = await fetchTimeZone(latitude, longitude);
-      const currentTime = await fetchCurrentTime(timezone);
-      setSearchTime(currentTime);
       onSearchChange(searchData);
+      if (!weatherDataLoaded) {
+        // Fetch time data only if weather data has not been loaded
+        const timezone = await fetchTimeZone(latitude, longitude);
+        const currentTime = await fetchCurrentTime(timezone);
+        setSearchTime(currentTime);
+        setWeatherDataLoaded(true);
+      }
     } catch (error) {
       console.error("Error fetching time data:", error);
     }
