@@ -54,11 +54,11 @@ function Forecast({ data }) {
               <div className="daily-details-grid">
                 <div className="daily-details-grid-item">
                   <label>Pressure:</label>
-                  <label>{item.main.pressure}</label>
+                  <label>{item.main.pressure} hPa</label>
                 </div>
                 <div className="daily-details-grid-item">
                   <label>Humidity:</label>
-                  <label>{item.main.humidity}</label>
+                  <label>{item.main.humidity}%</label>
                 </div>
                 <div className="daily-details-grid-item">
                   <label>Clouds:</label>
