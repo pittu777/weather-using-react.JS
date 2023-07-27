@@ -34,14 +34,19 @@ function App() {
   console.log(currentweather);
   console.log(forcast);
   return (
+    <>
     <div>
       <h1>WEATHER APP</h1>
       <Search onSearchChange={handleOnSearchChange} />
 
       {currentweather && <CurrentWeather data={currentweather} />}
 
+     
+
       {forcast && <Forecast data={forcast} />}
     </div>
+    
+    </>
   );
 }
 export default App;
