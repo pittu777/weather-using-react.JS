@@ -6,7 +6,7 @@
 /* Base styles for all devices */
 .map-container {
   border-radius: 10px;
-  max-width: 1479px;
+  max-width: 1490px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -32,9 +32,11 @@
 
 .windy-link {
   text-decoration: none;
+  margin-left: 3px;
 }
 
 .attribution-container p {
+  
   text-decoration: none;
   margin-right: 10px;
 }
@@ -64,14 +66,13 @@
 }
 
 
-
 .daily-item {
   background-color: #f5f5f5;
   border-radius: 15px;
   height: 40px;
   margin: 8px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 11px;
+  margin-right: 11px;
   align-items: center;
   cursor: pointer;
   display: flex;
