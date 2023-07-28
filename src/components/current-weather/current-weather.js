@@ -75,7 +75,7 @@ function CurrentWeather({ data }) {
       {/* Remove the WeatherMap component from here */}
       <div className="show-map-button">
         <Link to="/map">
-          <button>Show Map</button>
+          <button className="button">Show Map</button>
         </Link>
       </div>
     </div>
