@@ -91,10 +91,14 @@ function Forecast({ data }) {
       </div>
 
       <div class="attribution-container">
-        <span>Provided by
-        <a className="windy-link" href="https://www.windy.com/?16.301,80.464,5">
-          windy.com
-        </a>
+        <span>
+          Provided by
+          <a
+            className="windy-link"
+            href="https://www.windy.com/?16.301,80.464,5"
+          >
+            windy.com
+          </a>
         </span>
       </div>
     </>

@@ -1,16 +1,20 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 import "./current-weather.css";
 
 function CurrentWeather({ data }) {
-  // const CurrentWeather=({data})=>{
-
   const getTimeZoneOffset = (timezoneInSeconds) => {
     const offsetHours = Math.floor(timezoneInSeconds / 3600);
     const offsetMinutes = Math.abs(Math.floor((timezoneInSeconds % 3600) / 60));
-  
-    const sign = offsetHours >= 0 ? '+' : '-';
-    return `${sign}${Math.abs(offsetHours)}:${String(offsetMinutes).padStart(2, '0')}`;
+
+    const sign = offsetHours >= 0 ? "+" : "-";
+    return `${sign}${Math.abs(offsetHours)}:${String(offsetMinutes).padStart(
+      2,
+      "0"
+    )}`;
   };
-  
+
   return (
     <div className="weather">
       <div className="top">
@@ -42,19 +46,20 @@ function CurrentWeather({ data }) {
           </div>
           <div className="parameter-row">
             <span className="parameter-label">timezone</span>
-            <span className="parameter-value">{getTimeZoneOffset(data.timezone)} UTC</span>
+            <span className="parameter-value">
+              {getTimeZoneOffset(data.timezone)} UTC
+            </span>
           </div>
           <div className="parameter-row">
             <span className="parameter-label">sunrise</span>
             <span className="parameter-value">
-            {new Date(data.sys.sunrise * 1000).toLocaleTimeString()}
+              {new Date(data.sys.sunrise * 1000).toLocaleTimeString()}
             </span>
           </div>
-
           <div className="parameter-row">
             <span className="parameter-label">sunset</span>
             <span className="parameter-value">
-            {new Date(data.sys.sunset * 1000).toLocaleTimeString()}
+              {new Date(data.sys.sunset * 1000).toLocaleTimeString()}
             </span>
           </div>
           <div className="parameter-row">
@@ -66,6 +71,12 @@ function CurrentWeather({ data }) {
             <span className="parameter-value">{data.main.pressure} hPa</span>
           </div>
         </div>
+      </div>
+      {/* Remove the WeatherMap component from here */}
+      <div className="show-map-button">
+        <Link to="/map">
+          <button>Show Map</button>
+        </Link>
       </div>
     </div>
   );

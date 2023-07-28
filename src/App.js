@@ -1,52 +1,85 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
-import "./index.css";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
+import Map from "./components/WeatherMap/Map/Map";
 import CurrentWeather from "./components/current-weather/current-weather";
+
 function App() {
-  const [currentweather, setCurrentweather] = React.useState(null);
-  const [forcast, setForcast] = React.useState(null);
+  const [currentWeatherData, setCurrentWeatherData] = React.useState(null);
+  const [forecastData, setForecastData] = React.useState(null);
 
   const handleOnSearchChange = (searchdata) => {
     const [lat, lon] = searchdata.value.split(" ");
 
-    const currentweatherfetch = fetch(
+    const currentWeatherFetch = fetch(
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
-    const forcastfetch = fetch(
+    const forecastFetch = fetch(
       `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
 
-    Promise.all([currentweatherfetch, forcastfetch])
-      .then(async (response) => {
-        const weatherResponse = await response[0].json();
-        const forcastResponse = await response[1].json();
+    Promise.all([currentWeatherFetch, forecastFetch])
+      .then(async (responses) => {
+        const [currentWeatherResponse, forecastResponse] = await Promise.all(
+          responses.map((response) => response.json())
+        );
 
-        setCurrentweather({ city: searchdata.label, ...weatherResponse });
-        setForcast({ city: searchdata.label, ...forcastResponse });
+        setCurrentWeatherData({
+          city: searchdata.label,
+          lat,
+          lon,
+          ...currentWeatherResponse,
+        });
+        setForecastData({ city: searchdata.label, ...forecastResponse });
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  console.log(currentweather);
-  console.log(forcast);
+
   return (
     <>
-    <div>
-      <h1>WEATHER APP</h1>
-      <Search onSearchChange={handleOnSearchChange} />
+      <Router>
+        <div>
+          <h1>WEATHER APP</h1>
 
-      {currentweather && <CurrentWeather data={currentweather} />}
+          {/* Conditionally render the Search component based on the route */}
+          <Routes>
+            <Route
+              path="/"
+              element={<Search onSearchChange={handleOnSearchChange} />}
+            />
+            <Route path="/map" element={null} />
+          </Routes>
 
-     
-
-      {forcast && <Forecast data={forcast} />}
-    </div>
-    
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  {currentWeatherData && (
+                    <CurrentWeather data={currentWeatherData} />
+                  )}
+                  {forecastData && <Forecast data={forecastData} />}
+                </>
+              }
+            />
+            <Route
+              path="/map"
+              element={
+                <>
+                  {currentWeatherData && <Map location={currentWeatherData} />}
+                </>
+              }
+            />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
+
 export default App;
