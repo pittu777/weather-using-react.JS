@@ -26,6 +26,7 @@
 
 .attribution-container {
   display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
