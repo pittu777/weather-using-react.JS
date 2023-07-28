@@ -1,11 +1,14 @@
 import React from "react";
-
+import BackButton from "../BackButton/BackButton";
 function WeatherMap2(){
     return(
         <div>
             <h1>
-                not implemented Yet
+                Not implemented Yet
             </h1>
+            <div>
+                <BackButton/>
+            </div>
         </div>
     )
 }
