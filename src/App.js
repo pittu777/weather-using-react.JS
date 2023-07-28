@@ -5,6 +5,7 @@ import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
 import Map from "./components/WeatherMap/Map/Map";
+import WeatherMap2 from "./components/WeatherMap/Map2/weatherMap";
 import CurrentWeather from "./components/current-weather/current-weather";
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
               element={<Search onSearchChange={handleOnSearchChange} />}
             />
             <Route path="/map" element={null} />
+            <Route path="/weatherMap" element={null} />
           </Routes>
 
           <Routes>
@@ -73,6 +75,12 @@ function App() {
                 <>
                   {currentWeatherData && <Map location={currentWeatherData} />}
                 </>
+              }
+            />
+             <Route
+              path="/weatherMap"
+              element={
+                <WeatherMap2/>
               }
             />
           </Routes>
