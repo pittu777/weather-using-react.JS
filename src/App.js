@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "leaflet/dist/leaflet.css";
 import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
@@ -73,16 +74,19 @@ function App() {
               path="/map"
               element={
                 <>
-                  {currentWeatherData && <Map location={currentWeatherData} />}
+                  {currentWeatherData && (
+                    <Map
+                      location={currentWeatherData}
+                      city={currentWeatherData.city}
+                      lat={currentWeatherData.lat}
+                      lon={currentWeatherData.lon}
+                      temp={currentWeatherData}
+                    />
+                  )}
                 </>
               }
             />
-             <Route
-              path="/weatherMap"
-              element={
-                <WeatherMap2/>
-              }
-            />
+            <Route path="/weatherMap" element={<WeatherMap2 />} />
           </Routes>
         </div>
       </Router>

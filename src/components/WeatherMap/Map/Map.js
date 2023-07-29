@@ -1,8 +1,9 @@
 import React from "react";
 import BackButton from "../BackButton/BackButton";
 import WeatherMap from "../WeatherMap";
+import "leaflet/dist/leaflet.css";
 
-const Map = ({ location }) => {
+const Map = ({ location, temp }) => {
   const { city, lat, lon } = location;
 
   return (
