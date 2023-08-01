@@ -14,6 +14,7 @@ function CurrentWeather({ data }) {
       "0"
     )}`;
   };
+  console.log(data);
 
   return (
     <div className="weather">
