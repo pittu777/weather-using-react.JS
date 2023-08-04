@@ -1,4 +1,5 @@
 import React from "react";
+import 'animate.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
@@ -46,7 +47,7 @@ function App() {
     <>
       <Router>
         <div>
-          <h1>WEATHER APP</h1>
+          <h1 className="animate__animated animate__swing custom-h1">WEATHER APP</h1>
 
           {/* Conditionally render the Search component based on the route */}
           <Routes>

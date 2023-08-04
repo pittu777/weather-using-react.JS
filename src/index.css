@@ -5,10 +5,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #d5d4d4;
 }
-h1 {
+/* h1 {
   text-align: center;
   margin-top: 0px;
+} */
+.custom-h1 {
+  text-align: center;
+  margin-top: 0;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

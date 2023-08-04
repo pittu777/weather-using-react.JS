@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BackButton from "../BackButton/BackButton";
 import WeatherMap from "../WeatherMap";
 import "leaflet/dist/leaflet.css";
@@ -13,7 +14,9 @@ const Map = ({ location, temp }) => {
         <WeatherMap city={city} lat={lat} lon={lon} />
       </div>
       <div>
-        <BackButton />
+        <Link to="/">
+          <BackButton />
+        </Link>
       </div>
       <div className="p-container">
         <p className="p-tag">

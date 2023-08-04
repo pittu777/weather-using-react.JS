@@ -2,6 +2,28 @@
     width: 300px;
     margin-left: 47px;
 } */
+/* YourComponent.css */
+
+.time-info {
+    text-align: center;
+    margin-top: 8px;
+    /* Laptop view */
+    width: 100%; /* Adjust as needed for your design */
+  
+    /* Mobile view */
+    @media (max-width: 768px) {
+      width: 80%; /* Adjust as needed for your design */
+      font-size: 14px; /* Adjust font size for mobile */
+      margin: 0 auto; /* Center horizontally */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%; /* Occupy full height of the container */
+    }
+  }
+  
 
 /* Custom styles for the AsyncPaginate input */
 .input {

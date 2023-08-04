@@ -85,7 +85,8 @@ const Search = ({ onSearchChange }) => {
         <p style={{ textAlign: "center", marginTop: "0px" }}>No Internet</p>
       )}
       {searchTime && (
-        <p style={{ textAlign: "center", marginTop: "8px" }}>
+        // style={{ textAlign: "center", marginTop: "8px" }}
+        <p className="time-info">
           Time in {search.label}: {searchTime}
         </p>
       )}
