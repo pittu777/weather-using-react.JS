@@ -1,5 +1,5 @@
 import React from "react";
-import 'animate.css';
+import "animate.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
@@ -13,7 +13,37 @@ import CurrentWeather from "./components/current-weather/current-weather";
 function App() {
   const [currentWeatherData, setCurrentWeatherData] = React.useState(null);
   const [forecastData, setForecastData] = React.useState(null);
+  const [searchTime, setSearchTime] = React.useState("");
 
+  // const handleOnSearchChange = (searchdata) => {
+  //   const [lat, lon] = searchdata.value.split(" ");
+
+  //   const currentWeatherFetch = fetch(
+  //     `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+  //   );
+  //   const forecastFetch = fetch(
+  //     `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+  //   );
+
+  //   Promise.all([currentWeatherFetch, forecastFetch])
+  //     .then(async (responses) => {
+  //       const [currentWeatherResponse, forecastResponse] = await Promise.all(
+  //         responses.map((response) => response.json())
+  //       );
+
+  //       setCurrentWeatherData({
+  //         city: searchdata.label,
+  //         lat,
+  //         lon,
+  //         ...currentWeatherResponse,
+  //       });
+  //       setForecastData({ city: searchdata.label, ...forecastResponse });
+  //     })
+
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   const handleOnSearchChange = (searchdata) => {
     const [lat, lon] = searchdata.value.split(" ");
 
@@ -37,6 +67,10 @@ function App() {
           ...currentWeatherResponse,
         });
         setForecastData({ city: searchdata.label, ...forecastResponse });
+
+        // Set the searchTime state with the current time
+        const currentTime = new Date().toLocaleTimeString("en-US");
+        setSearchTime(currentTime);
       })
       .catch((err) => {
         console.log(err);
@@ -47,13 +81,20 @@ function App() {
     <>
       <Router>
         <div>
-          <h1 className="animate__animated animate__swing custom-h1">WEATHER APP</h1>
+          <h1 className="animate__animated animate__swing custom-h1">
+            WEATHER APP
+          </h1>
 
           {/* Conditionally render the Search component based on the route */}
           <Routes>
             <Route
               path="/"
-              element={<Search onSearchChange={handleOnSearchChange} />}
+              element={
+                <Search
+                  onSearchChange={handleOnSearchChange}
+                  searchTime={searchTime}
+                />
+              }
             />
             <Route path="/map" element={null} />
             <Route path="/weatherMap" element={null} />
@@ -82,6 +123,7 @@ function App() {
                       lat={currentWeatherData.lat}
                       lon={currentWeatherData.lon}
                       temp={currentWeatherData}
+                      searchTime={searchTime}
                     />
                   )}
                 </>
