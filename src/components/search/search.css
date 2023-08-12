@@ -5,52 +5,52 @@
 /* YourComponent.css */
 
 .time-info {
-    text-align: center;
-    margin-top: 8px;
-    /* Laptop view */
-    width: 100%; /* Adjust as needed for your design */
-  
-    /* Mobile view */
-    @media (max-width: 768px) {
-      width: 80%; /* Adjust as needed for your design */
-      font-size: 14px; /* Adjust font size for mobile */
-      margin: 0 auto; /* Center horizontally */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 100%; /* Occupy full height of the container */
-    }
-  }
-  
-  .loading-indicator {
+  text-align: center;
+  margin-top: 8px;
+  /* Laptop view */
+  width: 100%;
+
+  /* Mobile view */
+  @media (max-width: 768px) {
+    width: 80%;
+    font-size: 14px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    justify-content: center;
+    text-align: center;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-    z-index: 1000; /* Ensure it's above other content */
   }
-  
-  .loading-indicator img {
-    max-width: 50px; /* Adjust the size as needed */
-  }
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+}
+
+.loading-indicator img {
+  max-width: 50px;
+}
 
 /* Custom styles for the AsyncPaginate input */
 .input {
-    width: 100%; /* Adjust the width as desired */
-    margin: 5px auto; /* Margin on top and bottom, auto left and right */
-    max-width: 1024px; /* Optional: Set a maximum width */
+  width: 100%; /* Adjust the width as desired */
+  margin: 5px auto; /* Margin on top and bottom, auto left and right */
+  max-width: 1024px; /* Optional: Set a maximum width */
 }
 
 /* Media query for smaller devices */
 @media only screen and (max-width: 767px) {
-    .input {
-        width: 70%; /* Adjust the width for smaller devices */
-    }
+  .input {
+    width: 70%;
+  }
 }

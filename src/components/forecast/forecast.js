@@ -100,12 +100,8 @@ function Forecast({ data }) {
             windy.com
           </a>
         </span>
-        
       </div>
-      <span class="attribution-container">
-          Made with ReactJS
-        </span>
-      
+      <span class="attribution-container">Made with ReactJS</span>
     </>
   );
 }

@@ -26,7 +26,7 @@
 
 .attribution-container {
   display: flex;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
@@ -129,4 +129,63 @@
 
 .daily-details-grid-item label:last-child {
   color: #212121;
+}
+
+/* hourly */
+/* forecast.css */
+
+/* Default styles for all devices */
+.hourly-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hourly-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.hourly-item {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.hourly-item p {
+  margin: 5px 0;
+}
+
+.weather-icon {
+  font-size: 48px;
+  color: #3498db; /* Adjust the color as needed */
+  margin-bottom: 5px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .hourly-title {
+    font-size: 20px;
+  }
+
+  .hourly-item {
+    padding: 8px;
+  }
+
+  .weather-icon {
+    font-size: 32px;
+  }
 }

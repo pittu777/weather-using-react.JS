@@ -1,13 +1,13 @@
 import React from "react";
 import "animate.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Hourly from "./components/forecast/HourlyForcaste";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
 import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
 import Map from "./components/WeatherMap/Map/Map";
-import WeatherMap2 from "./components/WeatherMap/Map2/weatherMap";
 import CurrentWeather from "./components/current-weather/current-weather";
 
 function App() {
@@ -15,35 +15,6 @@ function App() {
   const [forecastData, setForecastData] = React.useState(null);
   const [searchTime, setSearchTime] = React.useState("");
 
-  // const handleOnSearchChange = (searchdata) => {
-  //   const [lat, lon] = searchdata.value.split(" ");
-
-  //   const currentWeatherFetch = fetch(
-  //     `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
-  //   );
-  //   const forecastFetch = fetch(
-  //     `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
-  //   );
-
-  //   Promise.all([currentWeatherFetch, forecastFetch])
-  //     .then(async (responses) => {
-  //       const [currentWeatherResponse, forecastResponse] = await Promise.all(
-  //         responses.map((response) => response.json())
-  //       );
-
-  //       setCurrentWeatherData({
-  //         city: searchdata.label,
-  //         lat,
-  //         lon,
-  //         ...currentWeatherResponse,
-  //       });
-  //       setForecastData({ city: searchdata.label, ...forecastResponse });
-  //     })
-
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
   const handleOnSearchChange = (searchdata) => {
     const [lat, lon] = searchdata.value.split(" ");
 
@@ -108,6 +79,18 @@ function App() {
                   {currentWeatherData && (
                     <CurrentWeather data={currentWeatherData} />
                   )}
+                  <nav>
+                    {currentWeatherData ? (
+                      <div>
+                        <label className="title">Hourly</label>
+                        <br />
+                        <Link to="/hourly" className="hourly-button">
+                          Hourly Forecast
+                        </Link>
+                      </div>
+                    ) : null}
+                   
+                  </nav>
                   {forecastData && <Forecast data={forecastData} />}
                 </>
               }
@@ -129,7 +112,15 @@ function App() {
                 </>
               }
             />
-            <Route path="/weatherMap" element={<WeatherMap2 />} />
+            <Route
+              path="/hourly"
+              element={
+                <Hourly
+                  city={currentWeatherData?.city}
+                  apiKey={WEATHER_API_KEY}
+                />
+              }
+            />
           </Routes>
         </div>
       </Router>
