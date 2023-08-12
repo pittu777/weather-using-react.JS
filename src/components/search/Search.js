@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 import "./search.css";
+import loadingGif from "./loader.gif"; // Replace with your loading GIF
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
-
-  console.log(searchTime);
+  const [isLoading, setIsLoading] = useState(false);
 
   const loadOptions = (inputValue) => {
     return fetch(
@@ -51,6 +51,7 @@ const Search = ({ onSearchChange }) => {
 
   const handleOnChange = async (searchData) => {
     setSearch(searchData);
+    setIsLoading(true); // Set loading to true when fetching data
 
     // Assuming the selected value is in the format "latitude longitude"
     const [latitude, longitude] = searchData.value.split(" ");
@@ -61,6 +62,8 @@ const Search = ({ onSearchChange }) => {
       onSearchChange(searchData);
     } catch (error) {
       console.error("Error fetching time data:", error);
+    } finally {
+      setIsLoading(false); // Set loading back to false after fetching data
     }
   };
 
@@ -68,7 +71,6 @@ const Search = ({ onSearchChange }) => {
     setIsOnline(navigator.onLine);
   };
 
-  // Add event listener to check online status changes.
   React.useEffect(() => {
     window.addEventListener("online", handleOnlineStatusChange);
     window.addEventListener("offline", handleOnlineStatusChange);
@@ -85,7 +87,6 @@ const Search = ({ onSearchChange }) => {
         <p style={{ textAlign: "center", marginTop: "0px" }}>No Internet</p>
       )}
       {searchTime && (
-        // style={{ textAlign: "center", marginTop: "8px" }}
         <p className="time-info">
           Time in {search.label}: {searchTime}
         </p>
@@ -99,6 +100,11 @@ const Search = ({ onSearchChange }) => {
         loadOptions={loadOptions}
         isDisabled={!isOnline}
       />
+      {isLoading && (
+        <div className="loading-indicator">
+          <img src={loadingGif} alt="Loading..." />
+        </div>
+      )}
     </>
   );
 };
