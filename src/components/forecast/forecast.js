@@ -81,27 +81,6 @@ function Forecast({ data }) {
           </div>
         ))}
       </div>
-      <div className="map-container">
-        <iframe
-          title="Weather Map"
-          className="map-iframe"
-          src="https://embed.windy.com/embed2.html?lat=12.191&lon=85.748&detailLat=12.191&detailLon=85.748&width=650&height=450&zoom=3&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
-          frameBorder="0"
-        ></iframe>
-      </div>
-
-      <div class="attribution-container">
-        <span>
-          Provided by
-          <a
-            className="windy-link"
-            href="https://www.windy.com/?16.301,80.464,5"
-          >
-            windy.com
-          </a>
-        </span>
-      </div>
-      <span class="attribution-container">Made with ReactJS</span>
     </>
   );
 }

@@ -10,13 +10,16 @@ import Forecast from "./components/forecast/forecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
 import Map from "./components/WeatherMap/Map/Map";
 import CurrentWeather from "./components/current-weather/current-weather";
+import MapForcaste from "./components/forecast/MapForcast";
 
 function App() {
   const [currentWeatherData, setCurrentWeatherData] = React.useState(null);
   const [forecastData, setForecastData] = React.useState(null);
   const [searchTime, setSearchTime] = React.useState("");
+  const [selectedCity, setSelectedCity] = React.useState(null);
 
   const handleOnSearchChange = (searchdata) => {
+    setSelectedCity(searchdata);
     const [lat, lon] = searchdata.value.split(" ");
 
     const currentWeatherFetch = fetch(
@@ -86,13 +89,13 @@ function App() {
                         <label className="title">Hourly</label>
                         <br />
                         <Link to="/hourly" className="hourly-button">
-                          Hourly Forecast <FiArrowRight/>
+                          Hourly Forecast <FiArrowRight />
                         </Link>
                       </div>
                     ) : null}
-                   
                   </nav>
                   {forecastData && <Forecast data={forecastData} />}
+                  {selectedCity && <MapForcaste selectedCity={selectedCity} />}
                 </>
               }
             />

@@ -1,0 +1,68 @@
+import React, { useState, useEffect } from "react";
+import "./forecast.css";
+import queryString from "query-string";
+
+function MapForcaste({ selectedCity }) {
+  const [coordinates, setCoordinates] = useState({ lat: 12.191, lon: 85.748 });
+
+  useEffect(() => {
+    if (selectedCity) {
+      const [lat, lon] = selectedCity.value.split(" ");
+      setCoordinates({ lat, lon });
+    }
+  }, [selectedCity]);
+
+  const mapUrl = queryString.stringifyUrl({
+    url: "https://embed.windy.com/embed2.html",
+    query: {
+      lat: coordinates.lat,
+      lon: coordinates.lon,
+      detailLat: coordinates.lat,
+      detailLon: coordinates.lon,
+      width: 650,
+      height: 450,
+      zoom: 5,
+      level: "surface",
+      overlay: "wind",
+      product: "ecmwf",
+      menu: "",
+      message: "",
+      marker: [coordinates.lat, coordinates.lon].join(","),
+      calendar: "now",
+      pressure: "",
+      type: "map",
+      location: "coordinates",
+      detail: "",
+      metricWind: "default",
+      metricTemp: "default",
+      radarRange: -1,
+    },
+  });
+
+  return (
+    <div>
+      <div className="map-container">
+        <iframe
+          title="Weather Map"
+          className="map-iframe"
+          src={mapUrl}
+          frameBorder="0"
+        ></iframe>
+      </div>
+      <div className="attribution-container">
+        <span>
+          Provided by{" "}
+          <a
+            className="windy-link"
+            href="https://www.windy.com/?16.301,80.464,5"
+          >
+            windy.com
+          </a>
+        </span>
+      </div>
+      <span className="attribution-container">Made with ReactJS</span>
+    </div>
+  );
+}
+
+export default MapForcaste;
