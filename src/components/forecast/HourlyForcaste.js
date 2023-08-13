@@ -62,7 +62,14 @@ function Hourly({ city, apiKey }) {
           </div>
           {hourlyForecast.map((forecast, index) => (
             <div className="hourly-item" key={index}>
-              <p>Time: {new Date(forecast.dt * 1000).toLocaleTimeString()}</p>
+              <p>
+                Time:{" "}
+                {new Date(forecast.dt * 1000).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })}
+              </p>
               <p>Temperature: {forecast.main.temp}°C</p>
               <p>Weather: {forecast.weather[0].description}</p>
               <p>Wind Speed: {forecast.wind.speed} m/s</p>

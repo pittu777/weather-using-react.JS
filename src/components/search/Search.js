@@ -10,6 +10,8 @@ const Search = ({ onSearchChange }) => {
   const [searchTime, setSearchTime] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  
+
   const loadOptions = (inputValue) => {
     return fetch(
       `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${inputValue}`,
