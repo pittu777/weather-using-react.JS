@@ -3,6 +3,7 @@ import "animate.css";
 import Hourly from "./components/forecast/HourlyForcaste";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import { FiArrowRight } from "react-icons/fi";
 import "leaflet/dist/leaflet.css";
 import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
@@ -85,7 +86,7 @@ function App() {
                         <label className="title">Hourly</label>
                         <br />
                         <Link to="/hourly" className="hourly-button">
-                          Hourly Forecast
+                          Hourly Forecast <FiArrowRight/>
                         </Link>
                       </div>
                     ) : null}

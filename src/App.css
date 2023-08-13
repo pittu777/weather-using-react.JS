@@ -37,7 +37,7 @@
 
 /* Arrow icon on the right */
 .hourly-button::after {
-  content: "\2192"; /* Unicode arrow right character */
+  
   position: absolute;
   top: 50%;
   right: 10px;
