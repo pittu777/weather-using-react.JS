@@ -10,11 +10,9 @@ import "./forecast.css";
 import "./../search/search.css";
 import BackButton from "../WeatherMap/BackButton/BackButton";
 import loadingGif from "./loader.gif";
-
 function Hourly({ city, apiKey }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
@@ -29,7 +27,6 @@ function Hourly({ city, apiKey }) {
         setLoading(false);
       });
   }, [city, apiKey]);
-
   const getWeatherIcon = (weather) => {
     const weatherIcons = {
       Clear: <WiDaySunny size={64} />,
@@ -40,10 +37,9 @@ function Hourly({ city, apiKey }) {
     };
     return weatherIcons[weather] || <WiCloud size={64} />;
   };
-
   return (
-    <div className="hourly-container">
-      <h1 className="hourly-title">Hourly Weather Forecast for {city}</h1>
+    <div className="hourly-container1">
+      <h1 className="hourly-title1">Hourly Weather Forecast for {city}</h1>
       {loading ? (
         <div className="loading-indicator">
           <img src={loadingGif} alt="Loading..." />
@@ -53,17 +49,17 @@ function Hourly({ city, apiKey }) {
           <div>
             <BackButton />
           </div>
-          <div className="hourly-items">
+          <div className="hourly-items1">
             {hourlyForecast.map((forecast, index) => (
-              <div className="hourly-item" key={index}>
-                <p className="time">
+              <div className="hourly-item1" key={index}>
+                <p className="time1">
                   {new Date(forecast.dt * 1000).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
                     hour12: true,
                   })}
                 </p>
-                <div className="weather-icon">
+                <div className="weather-icon1">
                   {getWeatherIcon(forecast.weather[0].main)}
                 </div>
                 <p className="temperature1">{forecast.main.temp}°C</p>
@@ -79,5 +75,4 @@ function Hourly({ city, apiKey }) {
     </div>
   );
 }
-
 export default Hourly;
