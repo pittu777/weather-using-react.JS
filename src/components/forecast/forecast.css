@@ -132,11 +132,7 @@
 }
 
 /* hourly */
-/* forecast.css */
-
-/* ... Previous styles ... */
-
-.hourly-container {
+/.hourly-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,30 +204,16 @@
   justify-content: center;
 }
 
-/* Responsive adjustments */
+/* Mobile layout adjustments */
 @media screen and (max-width: 768px) {
-  .hourly-title {
-    font-size: 24px;
+  .hourly-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
+  
   .hourly-item {
-    padding: 15px;
-  }
-
-  .time {
-    font-size: 18px;
-  }
-
-  .temperature1 {
-    font-size: 24px;
-  }
-
-  .weather-description1 {
-    font-size: 16px;
-  }
-
-  .wind-speed1 {
-    font-size: 14px;
+    width: 90%; /* Adjust width for better spacing */
   }
 
   .weather-icon {
