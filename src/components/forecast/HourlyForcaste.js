@@ -35,15 +35,14 @@ function Hourly({ city, apiKey }) {
   const getWeatherIcon = (weather) => {
     // Define the mapping of weather conditions to icons
     const weatherIcons = {
-      Clear: <WiDaySunny />,
-      Clouds: <WiCloud />,
-      Rain: <WiRain />,
-      Snow: <WiSnow />,
-      Thunderstorm: <WiThunderstorm />,
+      Clear: <WiDaySunny size={64} />, // Larger size
+      Clouds: <WiCloud size={64} />, // Larger size
+      Rain: <WiRain size={64} />, // Larger size
+      Snow: <WiSnow size={64} />, // Larger size
+      Thunderstorm: <WiThunderstorm size={64} />, // Larger size
     };
-
     // Return the corresponding icon or a default icon
-    return weatherIcons[weather] || <WiCloud />;
+    return weatherIcons[weather] || <WiCloud size={64} />;
   };
 
   return (
@@ -57,32 +56,35 @@ function Hourly({ city, apiKey }) {
       ) : (
         // Show hourly forecast data once loaded
         <div>
-          <div>
-            <BackButton />
-          </div>
+        <div>
+          <BackButton />
+        </div>
+        <div className="hourly-items">
           {hourlyForecast.map((forecast, index) => (
             <div className="hourly-item" key={index}>
-              <p>
-                Time:{" "}
+              <p className="time">
                 {new Date(forecast.dt * 1000).toLocaleTimeString([], {
                   hour: "2-digit",
                   minute: "2-digit",
                   hour12: true,
                 })}
               </p>
-              <p>Temperature: {forecast.main.temp}°C</p>
-              <p>Weather: {forecast.weather[0].description}</p>
-              <p>Wind Speed: {forecast.wind.speed} m/s</p>
               <div className="weather-icon">
                 {getWeatherIcon(forecast.weather[0].main)}
               </div>
-              <hr />
+              <p className="temperature1">{forecast.main.temp}°C</p>
+              <p className="weather-description">
+                {forecast.weather[0].description}
+              </p>
+              <p className="wind-speed">{forecast.wind.speed} m/s</p>
             </div>
           ))}
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 }
+
 
 export default Hourly;
