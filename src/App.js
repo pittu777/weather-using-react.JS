@@ -1,4 +1,5 @@
 import React from "react";
+import PopupMessage from "./components/PopUp/PopUp";
 import "animate.css";
 import Hourly from "./components/forecast/HourlyForcaste";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -59,6 +60,7 @@ function App() {
           <h1 className="animate__animated animate__swing custom-h1">
             WEATHER APP
           </h1>
+          <PopupMessage/>
 
           {/* Conditionally render the Search component based on the route */}
           <Routes>
