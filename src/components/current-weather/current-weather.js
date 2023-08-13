@@ -79,9 +79,6 @@ function CurrentWeather({ data }) {
         <Link to="/map">
           <button className="button">Show Map</button>
         </Link>
-        <Link to="/weatherMap">
-          <button className="button">Show weather map</button>
-        </Link>
       </div>
     </div>
    </>
