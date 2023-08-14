@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 import "./search.css";
-import loadingGif from "./loader.gif"; // Replace with your loading GIF
+// import loadingGif from "./loader.gif"; // Replace with your loading GIF
+import { Ring } from "@uiball/loaders";
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  
 
   const loadOptions = (inputValue) => {
     return fetch(
@@ -104,7 +103,8 @@ const Search = ({ onSearchChange }) => {
       />
       {isLoading && (
         <div className="loading-indicator">
-          <img src={loadingGif} alt="Loading..." />
+          {/* <img src={loadingGif} alt="Loading..." /> */}
+          <Ring size={40} lineWeight={5} speed={2} color="black" />
         </div>
       )}
     </>

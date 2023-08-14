@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Ring } from "@uiball/loaders";
 import {
   WiCloud,
   WiDaySunny,
@@ -9,7 +10,7 @@ import {
 import "./forecast.css";
 import "./../search/search.css";
 import BackButton from "../WeatherMap/BackButton/BackButton";
-import loadingGif from "./loader.gif";
+// import loadingGif from "./loader.gif";
 function Hourly({ city, apiKey }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,7 +43,8 @@ function Hourly({ city, apiKey }) {
       <h1 className="hourly-title1">Hourly Weather Forecast for {city}</h1>
       {loading ? (
         <div className="loading-indicator">
-          <img src={loadingGif} alt="Loading..." />
+          {/* <img src={loadingGif} alt="Loading..." /> */}
+          <Ring size={40} lineWeight={5} speed={2} color="black" />
         </div>
       ) : (
         <div>
