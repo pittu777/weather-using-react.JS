@@ -8,6 +8,7 @@ import {
   WiThunderstorm,
 } from "react-icons/wi";
 import "./forecast.css";
+import "animate.css";
 import "./../search/search.css";
 import BackButton from "../WeatherMap/BackButton/BackButton";
 // import loadingGif from "./loader.gif";
@@ -42,7 +43,7 @@ function Hourly({ city, apiKey }) {
   };
   return (
     <div className="hourly-container1">
-      <h1 className="hourly-title1">Hourly Weather Forecast for {city}</h1>
+      <h1 className="hourly-title1 ">Hourly Weather Forecast for {city}</h1>
       {loading ? (
         <div className="loading-indicator">
           {/* <img src={loadingGif} alt="Loading..." /> */}
