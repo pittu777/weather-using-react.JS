@@ -57,7 +57,7 @@ function App() {
     <>
       <Router>
         <div>
-          <h1 className="animate__animated animate__swing custom-h1">
+          <h1 className="animate__animated animate__rubberBand custom-h1">
             WEATHER APP
           </h1>
           <PopupMessage />
