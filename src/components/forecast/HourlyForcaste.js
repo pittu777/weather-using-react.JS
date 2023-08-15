@@ -14,6 +14,8 @@ import BackButton from "../WeatherMap/BackButton/BackButton";
 function Hourly({ city, apiKey }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  console.log(hourlyForecast);
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
