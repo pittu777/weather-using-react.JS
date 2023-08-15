@@ -1,14 +1,14 @@
 import React from "react";
-import PopupMessage from "./components/PopUp/PopUp";
-import "animate.css";
-import Hourly from "./components/forecast/HourlyForcaste";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
+import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
 import { FiArrowRight } from "react-icons/fi";
+import "./App.css";
+import "animate.css";
 import "leaflet/dist/leaflet.css";
+import PopupMessage from "./components/PopUp/PopUp";
+import Hourly from "./components/forecast/HourlyForcaste";
 import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
-import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
 import Map from "./components/WeatherMap/Map/Map";
 import CurrentWeather from "./components/current-weather/current-weather";
 import MapForcaste from "./components/forecast/MapForcast";
@@ -60,7 +60,7 @@ function App() {
           <h1 className="animate__animated animate__swing custom-h1">
             WEATHER APP
           </h1>
-          <PopupMessage/>
+          <PopupMessage />
 
           {/* Conditionally render the Search component based on the route */}
           <Routes>
