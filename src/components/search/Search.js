@@ -3,13 +3,16 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 import "./search.css";
 // import loadingGif from "./loader.gif"; // Replace with your loading GIF
-import { Ring } from "@uiball/loaders";
+// import { Ring } from "@uiball/loaders";
+import LoadingBar from "react-top-loading-bar";
+
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  const loadingBarRef = React.useRef(null); 
 
   const loadOptions = (inputValue) => {
     return fetch(
@@ -52,7 +55,8 @@ const Search = ({ onSearchChange }) => {
 
   const handleOnChange = async (searchData) => {
     setSearch(searchData);
-    setIsLoading(true); // Set loading to true when fetching data
+    // setIsLoading(true); // Set loading to true when fetching data
+    loadingBarRef.current.continuousStart();
 
     // Assuming the selected value is in the format "latitude longitude"
     const [latitude, longitude] = searchData.value.split(" ");
@@ -64,7 +68,8 @@ const Search = ({ onSearchChange }) => {
     } catch (error) {
       console.error("Error fetching time data:", error);
     } finally {
-      setIsLoading(false); // Set loading back to false after fetching data
+      loadingBarRef.current.complete();
+      // setIsLoading(false); // Set loading back to false after fetching data
     }
   };
 
@@ -101,12 +106,17 @@ const Search = ({ onSearchChange }) => {
         loadOptions={loadOptions}
         isDisabled={!isOnline}
       />
-      {isLoading && (
+      {/* {isLoading && (
         <div className="loading-indicator">
           {/* <img src={loadingGif} alt="Loading..." /> */}
-          <Ring size={40} lineWeight={5} speed={2} color="black" />
-        </div>
-      )}
+          {/* <Ring size={40} lineWeight={5} speed={2} color="black" />
+        </div> */}
+      {/* )}  */}
+
+
+      <LoadingBar ref={loadingBarRef} color="black" height={4}/>  
+      {/* color="#f11946" */}
+
     </>
   );
 };
