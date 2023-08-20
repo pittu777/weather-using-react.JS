@@ -11,6 +11,7 @@
     transition: opacity 0.3s ease;
   }
   
+  
   .show {
     display: block;
   }
