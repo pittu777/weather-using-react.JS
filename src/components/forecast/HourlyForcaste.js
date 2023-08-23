@@ -59,7 +59,7 @@ function Hourly({ city, apiKey }) {
   };
 
   return (
-    <div className="hourly-container1">
+    <div>
       <h1 className="hourly-title1">
         {cityNotFound ? "City not found" : `Hourly Weather Forecast for ${city}`}
       </h1>
