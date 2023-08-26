@@ -5,6 +5,7 @@ import WeatherMap from "../WeatherMap";
 import "leaflet/dist/leaflet.css";
 import "./../../search/search.css";
 import "animate.css";
+import logo from "./../../forecast/logo-map1.png"
 
 const Map = ({ location, searchTime }) => {
   const { city, lat, lon } = location;
@@ -25,11 +26,18 @@ const Map = ({ location, searchTime }) => {
         </Link>
       </div>
       <div className="p-container">
-        <p className="p-tag">
+        {/* <p className="p-tag">
           provided by{" "}
           <span>
             <a href="https://leafletjs.com/">leaflet</a>
           </span>
+        </p> */}
+        <span>powered by</span>
+        <p className="body-3">
+          
+           <a href="https://leafletjs.com/" rel="noreferrer" target="_blank">
+            <img src={logo} alt="" width={150} height={30} loading="lazy" />
+          </a>
         </p>
       </div>
     </>

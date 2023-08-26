@@ -29,7 +29,8 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 5px;
+  margin-bottom: -22px;
 }
 
 .windy-link {
@@ -266,3 +267,40 @@
   }
 }
 
+
+.footer {
+  color: #333333;
+  text-align: center;
+  margin-block-start: 28px;
+}
+
+.footer-box {
+  display: flex;
+  flex-direction: row; /* Display items in a row by default */
+  justify-content: center;
+  align-items: center;
+  background-color:#1d1d1d; /* Light black background color */
+  border-radius: 10px;
+  
+}
+
+.footer-box img {
+  max-width: 100px;
+  max-height: 30px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .footer-box {
+    
+    flex-direction: column; /* Display items in a column on smaller screens */
+    text-align: center; /* Center-align text */
+    padding: 12px; /* Adjust padding for smaller screens */
+  }
+
+  .footer-box img {
+    margin-top: 10px; /* Add spacing between text and logo */
+    max-width: 100%; /* Adjust logo width to fit smaller screens */
+    max-height: auto;
+  }
+}
