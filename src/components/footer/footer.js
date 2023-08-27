@@ -17,7 +17,7 @@ const Footer = () => {
             <FaBug className="bug-icon" />
           </div>
           <ContactForm />
-          <p>Email: weather777@gmail.com</p>
+          <p>Email: pittuprasanth14@gmail.com</p>
         </div>
         <div className="footer-section social-media">
           <h3>Follow Us</h3>
