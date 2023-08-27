@@ -42,7 +42,7 @@ body {
     align-items: center; /* Vertically center the icons */
     /* justify-content: space-evenly; */
     justify-content: center;
-    
+
     gap: 1rem;
 }
 .bug-icon {
@@ -87,6 +87,7 @@ body {
     background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px;
 }
 
 .form-container label {
@@ -129,10 +130,58 @@ body {
     }
 }
 
-
 .loading-gif {
     display: block;
     margin: 0 auto;
     width: 3em; /* Adjust the size as needed */
     height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+.footer-section.weather-gif {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* ... Other styling ... */
+  }
+  
+  .weather-gif-image {
+    /* max-width: 100%; */
+    width: 700px;
+    height: auto;
+    background-color: black;
+    border-radius: 5px;
+  }
+  .gap{
+    margin-top: 60px;
+  }
+  
+  .p {
+    margin: 5px; /* Add some margin between paragraphs */
+  }
+  
+  /* Media query for screens wider than a certain breakpoint (e.g., laptop screens) */
+  @media (min-width: 768px) {
+    .footer-section.weather-gif {
+      /* Keep the GIF visible on laptops */
+      display: flex;
+    }
+  }
+  
+  /* Media query for screens narrower than a certain breakpoint (e.g., mobile screens) */
+  @media (max-width: 767px) {
+    .footer-section.weather-gif {
+      /* Hide the GIF on mobile devices */
+      display: none;
+    }
   }

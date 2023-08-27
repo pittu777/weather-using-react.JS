@@ -19,6 +19,7 @@ const Footer = () => {
           <ContactForm />
           <p>Email: pittuprasanth14@gmail.com</p>
         </div>
+        
         <div className="footer-section social-media">
           <h3>Follow Us</h3>
           <div className="social-icons">
@@ -85,8 +86,41 @@ const Footer = () => {
         {/* Add more footer sections here */}
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2023 PITTU PRASANTH or PRAKASH,PRAVEEN,SIVA,NISHANTH. All rights reserved.</p>
-        <p>Website designed and developed by my team and me</p>
+        {/* <p>&copy; 2023 PITTU PRASANTH or PRAKASH,PRAVEEN,SIVA,NISHANTH. All rights reserved.</p>
+        <p>Website designed and developed by my team and me</p> */}
+        <div className="gap">
+        <div className="footer-section weather-gif">
+          {/* Display the weather GIF */}
+          <img
+            className="weather-gif-image"
+            src={openLogo}
+            alt="Weather GIF"
+          />
+          
+        </div>
+        <div className="footer-section weather-gif">
+          {/* Display the weather GIF */}
+          <img
+            className="weather-gif-image"
+            src={wind}
+            alt="Weather GIF"
+          />
+          
+        </div>
+        <div className="footer-section weather-gif">
+          {/* Display the weather GIF */}
+          <img
+            className="weather-gif-image"
+            src={time}
+            alt="Weather GIF"
+          />
+          
+        </div>
+        </div>
+        <p className="p">&copy; 2023 PITTU PRASANTH or PRAKASH,PRAVEEN,SIVA,NISHANTH. All rights reserved.</p>
+        <p className="p">Website designed and developed by my team and me</p>
+        
+
       </div>
     </footer>
   );
