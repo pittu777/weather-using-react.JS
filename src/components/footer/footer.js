@@ -86,7 +86,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>&copy; 2023 PITTU PRASANTH or PRAKASH,PRAVEEN,SIVA,NISHANTH. All rights reserved.</p>
-        <p>Website designed and developed by Your Name or Your Team Name.</p>
+        <p>Website designed and developed by my team and me</p>
       </div>
     </footer>
   );
