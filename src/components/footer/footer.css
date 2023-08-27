@@ -126,3 +126,11 @@ body {
         max-width: 100%;
     }
 }
+
+
+.loading-gif {
+    display: block;
+    margin: 0 auto;
+    width: 3em; /* Adjust the size as needed */
+    height: auto;
+  }

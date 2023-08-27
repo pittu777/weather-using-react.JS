@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./footer.css";
+import loading from "./images/loader.gif";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +11,7 @@ const ContactForm = () => {
     email: "",
     message: "",
   });
+  const [isSending, setIsSending] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -21,9 +25,10 @@ const ContactForm = () => {
     event.preventDefault();
 
     try {
+      setIsSending(true);
       await emailjs.send(
         "service_rfakgvn",
-        "template_4ytxw1b",
+        "template_gzd9e1p",
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -32,14 +37,16 @@ const ContactForm = () => {
         "Bbyr-WDgDW4N-fCSU"
       );
 
-      alert("Email sent successfully");
+      toast.success("Email sent successfully");
       setFormData({
         name: "",
         email: "",
         message: "",
       });
     } catch (error) {
-      alert("Error sending email:", error);
+      toast.error("Error sending email");
+    }finally{
+      setIsSending(false);
     }
   };
 
@@ -75,7 +82,15 @@ const ContactForm = () => {
             required
           />
         </div>
-        <button type="submit">Send</button>
+        <button type="submit" disabled={isSending}>
+          {isSending ?(
+            <img src={loading} alt="loading..." className="loading-gif" />
+          ):(
+            "send"
+          )}
+        </button>
+        <ToastContainer />
+        
       </form>
     </div>
   );
