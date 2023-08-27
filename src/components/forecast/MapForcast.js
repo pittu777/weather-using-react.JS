@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./forecast.css";
 import queryString from "query-string";
-import logo from "./logo-open.png";
-import wind from "./wind.png";
-import time from "./logo-time.png";
+
+import Footer from "../footer/footer";
 
 function MapForcaste({ selectedCity }) {
   const [coordinates, setCoordinates] = useState({ lat: 12.191, lon: 85.748 });
@@ -53,35 +52,9 @@ function MapForcaste({ selectedCity }) {
         ></iframe>
       </div>
 
-      <span className="attribution-container">
-            powered by <br />
-          </span>
-
-      <footer className="footer">
       
-        <div className="footer-box">
-          
-          <p className="body-3">
-            <a
-              href="https://openweather.org/api"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <img src={logo} alt="" width={150} height={30} loading="lazy" />
-            </a>
-          </p>
-          <p className="body-3">
-            <a href="https://www.windy.com/" rel="noreferrer" target="_blank">
-              <img src={wind} alt="" width={150} height={30} loading="lazy" />
-            </a>
-          </p>
-          <p className="body-3">
-            <a href="https://timezonedb.com/" rel="noreferrer" target="_blank">
-              <img src={time} alt="" width={150} height={30} loading="lazy" />
-            </a>
-          </p>
-        </div>
-      </footer>
+      <Footer />
+
       <span className="attribution-container">Made with ReactJS</span>
     </div>
   );
