@@ -281,6 +281,7 @@
   align-items: center;
   background-color:#1d1d1d; /* Light black background color */
   border-radius: 10px;
+  box-shadow: 10px 10px 10px;
   
 }
 

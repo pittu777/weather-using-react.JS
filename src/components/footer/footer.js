@@ -6,7 +6,7 @@ import wind from "./images/wind.png";
 import time from "./images/logo-time.png";
 import "./../forecast/forecast.css";
 import { FaFacebook, FaInstagram, FaTwitter, FaBug } from "react-icons/fa";
-import  Logo  from "./images/logo1.png";
+import Logo from "./images/logo1.png";
 
 const Footer = () => {
   return (
@@ -74,13 +74,7 @@ const Footer = () => {
                 rel="noreferrer"
                 target="_blank"
               >
-                <img
-                  src={Logo}
-                  alt=""
-                  width={150}
-                  height={30}
-                  loading="lazy"
-                />
+                <img src={Logo} alt="" width={150} height={30} loading="lazy" />
               </a>
             </p>
             <p className="body-3">
