@@ -118,6 +118,7 @@ function App() {
                 </>
               }
             />
+            
             <Route
               path="/hourly"
               element={

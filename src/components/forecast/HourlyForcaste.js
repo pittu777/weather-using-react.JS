@@ -61,40 +61,44 @@ function Hourly({ city, apiKey }) {
   return (
     <div>
       <h1 className="hourly-title1">
-        {cityNotFound ? "City not found" : `Hourly Weather Forecast for ${city}`}
+        {cityNotFound
+          ? "City not found"
+          : `Hourly Weather Forecast for ${city}`}
       </h1>
       {cityNotFound ? (
         <p>Please search for a city to see hourly forecast.</p>
       ) : (
         <>
-      <div>
-        <LoadingBar ref={loadingBarRef} color="black" height={4} />
-      </div>
-      <div>
-        <BackButton />
-      </div>
-      <div className="hourly-items1">
-        {hourlyForecast.map((forecast, index) => (
-          <div className="hourly-item1" key={index}>
-            <p className="time1">
-              {new Date(forecast.dt * 1000).toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: true,
-              })}
-            </p>
-            <div className="weather-icon1">
-              {getWeatherIcon(forecast.weather[0].main)}
-            </div>
-            <p className="temperature1">{forecast.main.temp}°C</p>
-            <p className="weather-description1">
-              {forecast.weather[0].description}
-            </p>
-            <p className="wind-speed1">{forecast.wind.speed} m/s</p>
+          <div>
+            <LoadingBar ref={loadingBarRef} color="black" height={4} />
           </div>
-        ))}
-      </div>
-      </>
+          <div>
+            <BackButton />
+          </div>
+          <div className="hourly-items1">
+            {hourlyForecast.map((forecast, index) => (
+              <div className="hourly-item1" key={index}>
+                <p className="time1">
+                  {new Date(forecast.dt * 1000).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true,
+                  })}
+                </p>
+                <div className="weather-icon1">
+                  {getWeatherIcon(forecast.weather[0].main)}
+                </div>
+                <p className="temperature1">{forecast.main.temp}°C</p>
+                <p className="weather-description1">
+                  {forecast.weather[0].description}
+                </p>
+                <p className="wind-speed1">{forecast.wind.speed} m/s</p>
+                <p className="wind-speed1">{forecast.main.humidity}%</p>
+                <p className="wind-speed1">{forecast.main.pressure}h Pa</p>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

@@ -43,6 +43,7 @@ function MapForcaste({ selectedCity }) {
 
   return (
     <div>
+      <label className="title">Map Precipitation</label>
       <div className="map-container">
         <iframe
           title="Weather Map"
