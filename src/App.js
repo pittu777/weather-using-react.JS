@@ -125,6 +125,7 @@ function App() {
                 <Hourly
                   city={currentWeatherData?.city}
                   apiKey={WEATHER_API_KEY}
+                  searchTime={searchTime}
                 />
               }
             />

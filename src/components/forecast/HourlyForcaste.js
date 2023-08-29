@@ -12,7 +12,7 @@ import "animate.css";
 import "./../search/search.css";
 import BackButton from "../WeatherMap/BackButton/BackButton";
 
-function Hourly({ city, apiKey }) {
+function Hourly({ city, apiKey, searchTime }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [cityNotFound, setCityNotFound] = useState(false);
   const loadingBarRef = React.useRef(null);
@@ -60,6 +60,9 @@ function Hourly({ city, apiKey }) {
 
   return (
     <div>
+      <p className="time-info animate__animated animate__rubberBand">
+          Time in {city}: {searchTime}
+        </p>
       <h1 className="hourly-title1">
         {cityNotFound
           ? "City not found"

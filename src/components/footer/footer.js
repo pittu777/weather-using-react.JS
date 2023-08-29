@@ -118,7 +118,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="p">
-          &copy; 2023 PITTU PRASANTH or PRAKASH,PRAVEEN,SIVA,NISHANTH. All
+          &copy; 2023 PITTU PRASANTH AND PRAKASH,PRAVEEN,SIVA,NISHANTH. All
           rights reserved.
         </p>
         <p className="p">Website designed and developed by my team and me</p>
