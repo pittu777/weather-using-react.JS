@@ -161,6 +161,7 @@ body {
     height: auto;
     background-color: black;
     border-radius: 5px;
+    border: 1px solid black;
   }
   .gap{
     margin-top: 60px;
