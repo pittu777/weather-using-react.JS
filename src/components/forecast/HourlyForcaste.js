@@ -30,7 +30,7 @@ function Hourly({ city, apiKey, searchTime }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.cod === "404") {
-          setCityNotFound(true); // Set cityNotFound state to true if city is not found
+          setCityNotFound(true); //  Set cityNotFound state to true if city is not found
         } else {
           setHourlyForecast(data.list);
         }
