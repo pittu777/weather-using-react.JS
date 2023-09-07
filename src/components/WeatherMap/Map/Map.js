@@ -14,7 +14,7 @@ const Map = ({ location, searchTime }) => {
   return (
     <>
       <div>
-        <h2 className="animate__animated animate__rubberBand" style={{ marginLeft: "90px" }}>{city} Map</h2>
+        <h2 className="time-info animate__animated animate__rubberBand" style={{ marginLeft: "auto" }}>{city} Map</h2>
         <p className="time-info animate__animated animate__rubberBand">
           Time in {city}: {searchTime}
         </p>
