@@ -15,6 +15,7 @@ import BackButton from "../WeatherMap/BackButton/BackButton";
 function Hourly({ city, apiKey, searchTime }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [cityNotFound, setCityNotFound] = useState(false);
+  const [activeBox, setActiveBox] = useState(null);
   const loadingBarRef = React.useRef(null);
 
   console.log(hourlyForecast);
@@ -47,6 +48,10 @@ function Hourly({ city, apiKey, searchTime }) {
         }
       });
   }, [city, apiKey]);
+  const handleBoxClick = (index) => {
+    // Define handleBoxClick function to toggle active box
+    setActiveBox(index === activeBox ? null : index);
+  };
   const getWeatherIcon = (weather) => {
     const weatherIcons = {
       Clear: <WiDaySunny size={64} />,
@@ -61,9 +66,9 @@ function Hourly({ city, apiKey, searchTime }) {
   return (
     <div>
       <p className="time-info animate__animated animate__rubberBand">
-          Time in {city}: {searchTime}
-        </p>
-      <h1 className="hourly-title1">
+        Time in {city}: {searchTime}
+      </p>
+      <h1 className="hourly-title1 time-info">
         {cityNotFound
           ? "City not found"
           : `Hourly Weather Forecast for ${city}`}
@@ -78,28 +83,42 @@ function Hourly({ city, apiKey, searchTime }) {
           <div>
             <BackButton />
           </div>
-          <div className="hourly-items1">
-            {hourlyForecast.map((forecast, index) => (
-              <div className="hourly-item1" key={index}>
-                <p className="time1">
-                  {new Date(forecast.dt * 1000).toLocaleTimeString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: true,
-                  })}
-                </p>
-                <div className="weather-icon1">
-                  {getWeatherIcon(forecast.weather[0].main)}
+          <div className="body">
+            <div className="hourly-items1">
+              {hourlyForecast.map((forecast, index) => (
+                <div
+                  className="hourly-item1"
+                  key={index}
+                  onClick={() => handleBoxClick(index)}
+                >
+                  <div className="box-header">
+                    <p className="time1">
+                      {new Date(forecast.dt * 1000).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
+                    </p>
+                    <div className="weather-icon1">
+                      {getWeatherIcon(forecast.weather[0].main)}
+                    </div>
+                  </div>
+                  <div
+                    className={`box-details ${
+                      activeBox === index ? "active" : ""
+                    }`}
+                  >
+                    <p className="temperature1">temperature:{forecast.main.temp}°C</p>
+                    <p className="weather-description1">description:
+                      {forecast.weather[0].description}
+                    </p>
+                    <p className="wind-speed1">Wind speed:{forecast.wind.speed} m/s</p>
+                    <p className="humidity1">humidity:{forecast.main.humidity}%</p>
+                    <p className="pressure1">pressure:{forecast.main.pressure}hPa</p>
+                  </div>
                 </div>
-                <p className="temperature1">{forecast.main.temp}°C</p>
-                <p className="weather-description1">
-                  {forecast.weather[0].description}
-                </p>
-                <p className="wind-speed1">{forecast.wind.speed} m/s</p>
-                <p className="wind-speed1">{forecast.main.humidity}%</p>
-                <p className="wind-speed1">{forecast.main.pressure}h Pa</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </>
       )}
