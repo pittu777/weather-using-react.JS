@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingBar from "react-top-loading-bar";
+import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import {
   WiCloud,
   WiDaySunny,
@@ -16,7 +17,12 @@ function Hourly({ city, apiKey, searchTime }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [cityNotFound, setCityNotFound] = useState(false);
   const [activeBox, setActiveBox] = useState(null);
+  
+
+  
   const loadingBarRef = React.useRef(null);
+
+  
 
   console.log(hourlyForecast);
 
@@ -92,6 +98,10 @@ function Hourly({ city, apiKey, searchTime }) {
                   onClick={() => handleBoxClick(index)}
                 >
                   <div className="box-header">
+                    
+                    <div className="weather-icon1">
+                      {getWeatherIcon(forecast.weather[0].main)}
+                    </div>
                     <p className="time1">
                       {new Date(forecast.dt * 1000).toLocaleTimeString([], {
                         hour: "2-digit",
@@ -99,8 +109,19 @@ function Hourly({ city, apiKey, searchTime }) {
                         hour12: true,
                       })}
                     </p>
-                    <div className="weather-icon1">
-                      {getWeatherIcon(forecast.weather[0].main)}
+                    <div>
+                      {forecast.weather[0].description}
+                    </div>
+                    <div>
+                      {Math.round(forecast.main.temp_min)}°C/{" "}
+                      {Math.round(forecast.main.temp_max)}°C
+                    </div>
+                    <div className="expand-icon">
+                      {activeBox === index ? (
+                        <FiChevronUp size={24} />
+                      ) : (
+                        <FiChevronDown size={24} />
+                      )}
                     </div>
                   </div>
                   <div
@@ -108,13 +129,22 @@ function Hourly({ city, apiKey, searchTime }) {
                       activeBox === index ? "active" : ""
                     }`}
                   >
-                    <p className="temperature1">temperature:{forecast.main.temp}°C</p>
-                    <p className="weather-description1">description:
+                    <p className="temperature1">
+                      temperature:{forecast.main.temp}°C
+                    </p>
+                    <p className="weather-description1">
+                      description:
                       {forecast.weather[0].description}
                     </p>
-                    <p className="wind-speed1">Wind speed:{forecast.wind.speed} m/s</p>
-                    <p className="humidity1">humidity:{forecast.main.humidity}%</p>
-                    <p className="pressure1">pressure:{forecast.main.pressure}hPa</p>
+                    <p className="wind-speed1">
+                      Wind speed:{forecast.wind.speed} m/s
+                    </p>
+                    <p className="humidity1">
+                      humidity:{forecast.main.humidity}%
+                    </p>
+                    <p className="pressure1">
+                      pressure:{forecast.main.pressure}hPa
+                    </p>
                   </div>
                 </div>
               ))}
