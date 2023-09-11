@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingBar from "react-top-loading-bar";
+import NotFound from "./pageNot";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import {
   WiCloud,
@@ -17,12 +18,8 @@ function Hourly({ city, apiKey, searchTime }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [cityNotFound, setCityNotFound] = useState(false);
   const [activeBox, setActiveBox] = useState(null);
-  
 
-  
   const loadingBarRef = React.useRef(null);
-
-  
 
   console.log(hourlyForecast);
 
@@ -91,63 +88,63 @@ function Hourly({ city, apiKey, searchTime }) {
           </div>
           <div className="body">
             <div className="hourly-items1">
-              {hourlyForecast.map((forecast, index) => (
-                <div
-                  className="hourly-item1"
-                  key={index}
-                  onClick={() => handleBoxClick(index)}
-                >
-                  <div className="box-header">
-                    
-                    <div className="weather-icon1">
-                      {getWeatherIcon(forecast.weather[0].main)}
-                    </div>
-                    <p className="time1">
-                      {new Date(forecast.dt * 1000).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                        hour12: true,
-                      })}
-                    </p>
-                    <div>
-                      {forecast.weather[0].description}
-                    </div>
-                    <div>
-                      {Math.round(forecast.main.temp_min)}°C/{" "}
-                      {Math.round(forecast.main.temp_max)}°C
-                    </div>
-                    <div className="expand-icon">
-                      {activeBox === index ? (
-                        <FiChevronUp size={24} />
-                      ) : (
-                        <FiChevronDown size={24} />
-                      )}
-                    </div>
-                  </div>
+              {hourlyForecast && hourlyForecast.length > 0 ? (
+                hourlyForecast.map((forecast, index) => (
                   <div
-                    className={`box-details ${
-                      activeBox === index ? "active" : ""
-                    }`}
+                    className="hourly-item1"
+                    key={index}
+                    onClick={() => handleBoxClick(index)}
                   >
-                    <p className="temperature1">
-                      temperature:{forecast.main.temp}°C
-                    </p>
-                    <p className="weather-description1">
-                      description:
-                      {forecast.weather[0].description}
-                    </p>
-                    <p className="wind-speed1">
-                      Wind speed:{forecast.wind.speed} m/s
-                    </p>
-                    <p className="humidity1">
-                      humidity:{forecast.main.humidity}%
-                    </p>
-                    <p className="pressure1">
-                      pressure:{forecast.main.pressure}hPa
-                    </p>
+                    <div className="box-header">
+                      <div className="weather-icon1">
+                        {getWeatherIcon(forecast.weather[0].main)}
+                      </div>
+                      <p className="time1">
+                        {new Date(forecast.dt * 1000).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
+                      </p>
+                      <div>{forecast.weather[0].description}</div>
+                      <div>
+                        {Math.round(forecast.main.temp_min)}°C/{" "}
+                        {Math.round(forecast.main.temp_max)}°C
+                      </div>
+                      <div className="expand-icon">
+                        {activeBox === index ? (
+                          <FiChevronUp size={24} />
+                        ) : (
+                          <FiChevronDown size={24} />
+                        )}
+                      </div>
+                    </div>
+                    <div
+                      className={`box-details ${
+                        activeBox === index ? "active" : ""
+                      }`}
+                    >
+                      <p className="temperature1">
+                        temperature:{forecast.main.temp}°C
+                      </p>
+                      <p className="weather-description1">
+                        description: {forecast.weather[0].description}
+                      </p>
+                      <p className="wind-speed1">
+                        Wind speed:{forecast.wind.speed} m/s
+                      </p>
+                      <p className="humidity1">
+                        humidity:{forecast.main.humidity}%
+                      </p>
+                      <p className="pressure1">
+                        pressure:{forecast.main.pressure}hPa
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <NotFound/>
+              )}
             </div>
           </div>
         </>
