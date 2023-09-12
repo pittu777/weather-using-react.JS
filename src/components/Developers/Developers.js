@@ -1,6 +1,7 @@
 import React from 'react';
 import peopleData from './../../Data/Data.js';
 import './Developer.css'; // Import the CSS file
+import BackButton from '../WeatherMap/BackButton/BackButton.js';
 
 function Developer() {
   return (
@@ -19,6 +20,7 @@ function Developer() {
           </li>
         ))}
       </ul>
+      <BackButton/>
     </div>
   );
 }
