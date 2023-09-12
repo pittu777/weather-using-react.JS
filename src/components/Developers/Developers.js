@@ -1,32 +1,25 @@
-// src/components/PeopleList.js
-
 import React from 'react';
-import peopleData from "./../../Data/Data.js";
-import "./Developer.css";
-import BackButton from '../WeatherMap/BackButton/BackButton.js';
+import peopleData from './../../Data/Data.js';
+import './Developer.css'; // Import the CSS file
 
 function Developer() {
   return (
-    <>
-    <div className='container-developer'>
-      <h1 className='heading'>Developers</h1>
-      <ul className='ul'>
+    <div className="people-list-container"> {/* Added class name to the div */}
+      <h1 className="people-list-title">Developers</h1> {/* Added class name to the heading */}
+      <ul className="people-list">
         {peopleData.map((person, index) => (
-          <li className='li' key={index}>
-            <h2 className='h2'>{person.name}</h2>
-            <img className='img' src={person.image} alt={person.name} />
-            <p className='paragraph'>Year:{person.Year}</p>
-            <p className='paragraph'>Branch:{person.Branch}</p>
-            <p className='paragraph'>{person.profession}</p>
+          <li className="person" key={index}> {/* Added class name to the list item */}
+            <h2 className="person-name">{person.name}</h2> {/* Added class name to the name */}
+            <div className="image-container"> {/* Added class name to the image container */}
+              <img className="person-image" src={person.image} alt={person.name} /> {/* Added class name to the image */}
+            </div>
+            <p className="person-profession">{person.Year}</p>
+            <p className="person-profession">{person.Branch}</p>
+            <p className="person-profession">{person.profession}</p> {/* Added class name to the profession */}
           </li>
         ))}
       </ul>
     </div>
-    <div>
-        <BackButton/>
-
-    </div>
-   </>
   );
 }
 

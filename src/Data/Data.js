@@ -3,7 +3,7 @@
 const peopleData = [
     {
       name: "Siva",
-      image: "logo512.png",
+      image: "siva.jpg",
       Year : "3rd Year",
       Branch:"CSE",
       profession: "UI/UX Design"
@@ -24,7 +24,7 @@ const peopleData = [
     },
     {
       name: "Nishanth",
-      image: "logo512.png",
+      image: "ni.jpg",
       Year : "3rd Year",
       Branch:"CSE",
       profession: "Component Development"
