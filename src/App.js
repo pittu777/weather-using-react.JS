@@ -5,13 +5,15 @@ import { FiArrowRight } from "react-icons/fi";
 import "./App.css";
 import "animate.css";
 import "leaflet/dist/leaflet.css";
-import PopupMessage from "./components/PopUp/PopUp";
+// import PopupMessage from "./components/PopUp/PopUp";
 import Hourly from "./components/forecast/HourlyForcaste";
 import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
 import Map from "./components/WeatherMap/Map/Map";
 import CurrentWeather from "./components/current-weather/current-weather";
 import MapForcaste from "./components/forecast/MapForcast";
+import Developer from "./components/Developers/Developers";
+
 
 function App() {
   const [currentWeatherData, setCurrentWeatherData] = React.useState(null);
@@ -60,7 +62,7 @@ function App() {
           <h1 className="animate__animated animate__rubberBand custom-h1">
             WEATHER APP
           </h1>
-          <PopupMessage />
+          {/* <PopupMessage /> */}
 
           {/* Conditionally render the Search component based on the route */}
           <Routes>
@@ -131,7 +133,14 @@ function App() {
             />
           </Routes>
         </div>
+        <Routes>
+          <Route path="/Developer"
+          element={<Developer/>}
+          />
+          
+        </Routes>
       </Router>
+      
     </>
   );
 }

@@ -5,7 +5,7 @@ import openLogo from "./images/logo-open.png";
 import wind from "./images/wind.png";
 import time from "./images/logo-time.png";
 import "./../forecast/forecast.css";
-import { FaFacebook, FaInstagram, FaTwitter, FaBug } from "react-icons/fa";
+import { FaFacebook, FaDev, FaInstagram, FaTwitter, FaBug } from "react-icons/fa";
 import Logo from "./images/logo1.png";
 
 const Footer = () => {
@@ -25,6 +25,13 @@ const Footer = () => {
           <h3>Follow Us</h3>
           <div className="social-icons">
             {/* Add your social media icons and links here */}
+            <a
+              href="/Developer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaDev className="social-icon" />
+            </a>
             <a
               href="https://www.google.com/"
               target="_blank"

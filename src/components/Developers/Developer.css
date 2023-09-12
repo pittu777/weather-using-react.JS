@@ -1,0 +1,52 @@
+/* src/components/PeopleList.css */
+
+/* Style the container div */
+.container-developer {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  /* Style the heading */
+  .heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the list */
+  .ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Style each person's container (list item) */
+  .li {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the person's name */
+  .h2 {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Style the image */
+  .img {
+    max-width: 100px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid #333;
+  }
+  
+  /* Style the profession */
+  .paragraph {
+    font-size: 14px;
+    color: #666;
+  }
+  
