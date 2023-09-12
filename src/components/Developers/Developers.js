@@ -17,7 +17,7 @@ function Developer() {
             <img className='img' src={person.image} alt={person.name} />
             <p className='paragraph'>Year:{person.Year}</p>
             <p className='paragraph'>Branch:{person.Branch}</p>
-            <p className='paragraph'>Profession: {person.profession}</p>
+            <p className='paragraph'>{person.profession}</p>
           </li>
         ))}
       </ul>
