@@ -234,3 +234,17 @@
     max-height: auto;
   }
 }
+
+
+/* loading */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42vh;
+}
+
+h1 {
+  font-size: 24px;
+}
+

@@ -1,11 +1,22 @@
-// NotFound.js
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./forecast.css"; // Import your CSS file
 
 const NotFound = () => {
+  const [dots, setDots] = useState("...");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots((prevDots) => {
+        return prevDots === "..." ? "" : prevDots + ".";
+      });
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div>
-      <h1 className="time-info">Loading.......</h1>
-      
+    <div className="loading-container">
+      <h1>Loading{dots}</h1>
     </div>
   );
 };
