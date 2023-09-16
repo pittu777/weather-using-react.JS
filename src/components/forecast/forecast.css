@@ -248,3 +248,24 @@
   font-size: 24px;
 }
 
+.custom-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(240, 240, 240, 0.8) 25%,
+    rgba(224, 224, 224, 0.8) 50%,
+    rgba(240, 240, 240, 0.8) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px; /* Add rounded corners to mimic Instagram's style */
+  margin-right: 16px; /* Adjust margin for spacing between items */
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
