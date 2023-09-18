@@ -37,6 +37,12 @@
   z-index: 1000;
 }
 
+.loading-indicator div {
+  display: flex;
+  flex-direction: column; /* Display img and p in a column */
+  align-items: center; /* Center items horizontally */
+}
+
 .loading-indicator img {
   max-width: 50px;
 }

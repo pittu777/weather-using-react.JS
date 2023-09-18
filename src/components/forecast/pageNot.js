@@ -16,7 +16,7 @@ const NotFound = () => {
 
   return (
     <div className="loading-container">
-      <h1 className="loading-h1">Loading{dots}</h1>
+      <h1 className="loading-h1">page not found go back {dots}</h1>
     </div>
   );
 };

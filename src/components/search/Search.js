@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 import "./search.css";
-// import loadingGif from "./loader.gif"; // Replace with your loading GIF
-// import { Ring } from "@uiball/loaders";
 import LoadingBar from "react-top-loading-bar";
 
-
 const Search = ({ onSearchChange }) => {
+  // Initialize state variables
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
-  // const [isLoading, setIsLoading] = useState(false);
-  const loadingBarRef = React.useRef(null); 
+  const [isLoading, setIsLoading] = useState(false);
+  const loadingBarRef = React.useRef(null);
 
+  // Function to load city options
   const loadOptions = (inputValue) => {
     return fetch(
       `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${inputValue}`,
@@ -32,6 +31,7 @@ const Search = ({ onSearchChange }) => {
       });
   };
 
+  // Function to fetch current time
   const fetchCurrentTime = (timezone) => {
     const currentTime = new Date().toLocaleString("en-US", {
       timeZone: timezone,
@@ -39,6 +39,7 @@ const Search = ({ onSearchChange }) => {
     return currentTime;
   };
 
+  // Function to fetch time zone
   const fetchTimeZone = (latitude, longitude) => {
     const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${latitude}&lng=${longitude}`;
 
@@ -53,10 +54,11 @@ const Search = ({ onSearchChange }) => {
       });
   };
 
+  // Function to handle search change
   const handleOnChange = async (searchData) => {
     setSearch(searchData);
-    // setIsLoading(true); // Set loading to true when fetching data
-    loadingBarRef.current.continuousStart();
+    setIsLoading(true); // Set loading to true when fetching data
+    loadingBarRef.current.continuousStart(); // Start the loading bar
 
     // Assuming the selected value is in the format "latitude longitude"
     const [latitude, longitude] = searchData.value.split(" ");
@@ -68,11 +70,12 @@ const Search = ({ onSearchChange }) => {
     } catch (error) {
       console.error("Error fetching time data:", error);
     } finally {
-      loadingBarRef.current.complete();
-      // setIsLoading(false); // Set loading back to false after fetching data
+      setIsLoading(false); // Set loading back to false after fetching data
+      loadingBarRef.current.complete(); // Complete the loading bar
     }
   };
 
+  // Function to handle online status change
   const handleOnlineStatusChange = () => {
     setIsOnline(navigator.onLine);
   };
@@ -106,17 +109,16 @@ const Search = ({ onSearchChange }) => {
         loadOptions={loadOptions}
         isDisabled={!isOnline}
       />
-      {/* {isLoading && (
+      {isLoading && (
+        
         <div className="loading-indicator">
-          {/* <img src={loadingGif} alt="Loading..." /> */}
-          {/* <Ring size={40} lineWeight={5} speed={2} color="black" />
-        </div> */}
-      {/* )}  */}
-
-
-      <LoadingBar ref={loadingBarRef} color="#333" height={4}/>  
-      {/* color="#f11946" */}
-
+          <div>
+          <img src="./loader.gif" alt="" />
+          <p>Fetching data...</p>
+          </div>
+        </div>
+      )}
+      <LoadingBar ref={loadingBarRef} color="#333" height={4} />
     </>
   );
 };
