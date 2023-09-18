@@ -237,7 +237,7 @@
 
 
 /* loading */
-/* .loading-container {
+.loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -246,7 +246,7 @@
 
 .loading-h1 {
   font-size: 24px;
-} */
+}
 /* styles.css */
 .not-found {
   display: flex;
