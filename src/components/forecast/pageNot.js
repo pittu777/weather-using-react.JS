@@ -15,8 +15,12 @@ const NotFound = () => {
   }, []);
 
   return (
-    <div className="loading-container">
-      <h1 className="loading-h1">page not found go back {dots}</h1>
+    // <div className="loading-container">
+    //   <h1 className="loading-h1">page not found go back {dots}</h1>
+    // </div>
+    <div className="not-found">
+      <h1 className="not-found-h1">404 - Page Not Found{dots}</h1>
+      <p className="not-found-p">Sorry, the page does not exist{dots}</p>
     </div>
   );
 };
