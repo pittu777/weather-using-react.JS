@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css"; // Make sure to adjust the path to your CSS file
-import ContactForm from "./ContactForm";
+// import ContactForm from "./ContactForm";
 import openLogo from "./images/logo-open.png";
 import wind from "./images/wind.png";
 import time from "./images/logo-time.png";
@@ -14,10 +14,10 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section contact">
           <div className="report-heading">
-            <h3>Report</h3>
+            <a href="/contact" target="_blank">Report</a>
             <FaBug className="bug-icon" />
           </div>
-          <ContactForm />
+          {/* <ContactForm /> */}
           <p>Email: pittuprasanth14@gmail.com</p>
         </div>
 

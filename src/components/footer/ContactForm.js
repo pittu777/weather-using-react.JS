@@ -4,6 +4,7 @@ import "./footer.css";
 import loading from "./images/loader.gif";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BackButton from "../WeatherMap/BackButton/BackButton";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +46,7 @@ const ContactForm = () => {
       });
     } catch (error) {
       toast.error("Error sending email");
-    }finally{
+    } finally {
       setIsSending(false);
     }
   };
@@ -83,15 +84,15 @@ const ContactForm = () => {
           />
         </div>
         <button type="submit" disabled={isSending}>
-          {isSending ?(
+          {isSending ? (
             <img src={loading} alt="loading..." className="loading-gif" />
-          ):(
+          ) : (
             "send"
           )}
         </button>
         <ToastContainer />
-        
       </form>
+      <div>{<BackButton />}</div>
     </div>
   );
 };

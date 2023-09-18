@@ -167,6 +167,7 @@ import Map from "./components/WeatherMap/Map/Map";
 import CurrentWeather from "./components/current-weather/current-weather";
 import MapForcaste from "./components/forecast/MapForcast";
 import Developer from "./components/Developers/Developers";
+import ContactForm from "./components/footer/ContactForm";
 
 function App() {
   // Initialize state variables
@@ -294,6 +295,9 @@ function App() {
         {/* Developer route */}
         <Routes>
           <Route path="/Developer" element={<Developer />} />
+        </Routes>
+        <Routes>
+          <Route path="/contact" element={<ContactForm/>}></Route>
         </Routes>
       </Router>
     </>
