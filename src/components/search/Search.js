@@ -118,7 +118,7 @@ const Search = ({ onSearchChange }) => {
           </div>
         </div>
       )}
-      <LoadingBar ref={loadingBarRef} color="#333" height={4} />
+      <LoadingBar ref={loadingBarRef} color="green" height={4} />
     </>
   );
 };
