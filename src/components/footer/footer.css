@@ -32,10 +32,6 @@ body {
     margin: 1rem;
 }
 
-/* .social-icons {
-    display: flex;
-    gap: 1rem;
-  } */
 /* social */
 .social-icons {
     display: flex;
@@ -71,6 +67,14 @@ body {
 .social-icon:hover {
     color: #007bff;
 }
+
+.loading-gif {
+    display: block;
+    margin: 0 auto;
+    width: 3em; /* Adjust the size as needed */
+    height: auto;
+}
+
 /* Media queries */
 @media (max-width: 768px) {
     .footer {
@@ -130,59 +134,3 @@ body {
     }
 }
 
-.loading-gif {
-    display: block;
-    margin: 0 auto;
-    width: 3em; /* Adjust the size as needed */
-    height: auto;
-}
-
-
-
-
-
-
-
-
-
-
-.footer-section.weather-gif {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* ... Other styling ... */
-  }
-  
-  .weather-gif-image {
-    /* max-width: 100%; */
-    width: 700px;
-    height: auto;
-    background-color: black;
-    border-radius: 5px;
-    border: 1px solid black;
-  }
-  .gap{
-    margin-top: 60px;
-  }
-  
-  .p {
-    margin: 5px; /* Add some margin between paragraphs */
-  }
-  
-  /* Media query for screens wider than a certain breakpoint (e.g., laptop screens) */
-  @media (min-width: 768px) {
-    .footer-section.weather-gif {
-      /* Keep the GIF visible on laptops */
-      display: flex;
-    }
-  }
-  
-  /* Media query for screens narrower than a certain breakpoint (e.g., mobile screens) */
-  @media (max-width: 767px) {
-    .footer-section.weather-gif {
-      /* Hide the GIF on mobile devices */
-      display: none;
-    }
-  }

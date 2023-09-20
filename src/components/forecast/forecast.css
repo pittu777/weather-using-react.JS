@@ -136,7 +136,7 @@
 /* don't add .hourly-container1 */
 /* CSS for Hourly Weather Forecast */
 /* CSS for Hourly Weather Forecast */
-.body{
+.body {
   margin: 10px 10px 10px 10px;
 }
 .hourly-item1 {
@@ -158,8 +158,6 @@
   justify-content: space-between;
   padding: -1px;
   cursor: pointer;
-  
-  
 }
 
 .time1 {
@@ -193,10 +191,6 @@
   margin: 5px 0;
 }
 
-
-
-
-
 .footer {
   color: #333333;
   text-align: center;
@@ -208,10 +202,9 @@
   flex-direction: row; /* Display items in a row by default */
   justify-content: center;
   align-items: center;
-  background-color:#1d1d1d; /* Light black background color */
+  background-color: #1d1d1d; /* Light black background color */
   border-radius: 10px;
   box-shadow: 10px 10px 10px;
-  
 }
 
 .footer-box img {
@@ -222,8 +215,7 @@
 /* Media query for responsiveness */
 @media (max-width: 768px) {
   .footer-box {
-    
-    flex-direction: column; /* Display items in a column on smaller screens */
+    flex-direction: row; /* Display items in a column on smaller screens */
     text-align: center; /* Center-align text */
     padding: 12px; /* Adjust padding for smaller screens */
   }
@@ -234,7 +226,6 @@
     max-height: auto;
   }
 }
-
 
 /* loading */
 .loading-container {
@@ -278,7 +269,6 @@
   }
 }
 /*  */
-
 
 .custom-skeleton {
   background: linear-gradient(

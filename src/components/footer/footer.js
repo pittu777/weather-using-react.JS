@@ -1,23 +1,31 @@
 import React from "react";
-import "./footer.css"; // Make sure to adjust the path to your CSS file
-// import ContactForm from "./ContactForm";
+import "./footer.css";
 import openLogo from "./images/logo-open.png";
 import wind from "./images/wind.png";
 import time from "./images/logo-time.png";
 import "./../forecast/forecast.css";
-import { FaFacebook, FaDev, FaInstagram, FaTwitter, FaBug } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaDev,
+  FaInstagram,
+  FaTwitter,
+  FaBug,
+} from "react-icons/fa";
 import Logo from "./images/logo1.png";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section contact">
           <div className="report-heading">
-            <a href="/contact" target="_blank">Report</a>
+            <a href="/contact" target="_blank">
+              Report
+            </a>
             <FaBug className="bug-icon" />
           </div>
-          {/* <ContactForm /> */}
+
           <p>Email: pittuprasanth14@gmail.com</p>
         </div>
 
@@ -25,11 +33,7 @@ const Footer = () => {
           <h3>Follow Us</h3>
           <div className="social-icons">
             {/* Add your social media icons and links here */}
-            <a
-              href="/Developer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/Developer" target="_blank" rel="noopener noreferrer">
               <FaDev className="social-icon" />
             </a>
             <a
@@ -98,38 +102,15 @@ const Footer = () => {
                 <img src={time} alt="" width={150} height={30} loading="lazy" />
               </a>
             </p>
+            
           </div>
+          <p>{currentYear} PITTU PRASANTH AND PRAKASH,PRAVEEN,SIVA,NISHANTH. All
+          rights reserved.</p>
+          <p>Website designed and developed by my team and me</p>
         </div>
-        {/* Add more footer sections here */}
+        
       </div>
-      <div className="footer-bottom">
-        {/* <p>&copy; 2023 PITTU PRASANTH or PRAKASH,PRAVEEN,SIVA,NISHANTH. All rights reserved.</p>
-        <p>Website designed and developed by my team and me</p> */}
-        <div className="gap">
-          <div className="footer-section weather-gif">
-            {/* Display the weather GIF */}
-            <img
-              className="weather-gif-image"
-              src={openLogo}
-              alt="Weather GIF"
-            />
-          </div>
-          <div className="footer-section weather-gif">
-            {/* Display the weather GIF */}
-            <img className="weather-gif-image" src={wind} alt="Weather GIF" />
-          </div>
-
-          <div className="footer-section weather-gif">
-            {/* Display the weather GIF */}
-            <img className="weather-gif-image" src={Logo} alt="Weather GIF" />
-          </div>
-        </div>
-        <p className="p">
-          &copy; 2023 PITTU PRASANTH AND PRAKASH,PRAVEEN,SIVA,NISHANTH. All
-          rights reserved.
-        </p>
-        <p className="p">Website designed and developed by my team and me</p>
-      </div>
+      
     </footer>
   );
 };
