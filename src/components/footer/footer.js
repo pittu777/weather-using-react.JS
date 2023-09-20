@@ -115,10 +115,11 @@ const Footer = () => {
             
             
           </div>
-          
-          <p>© {currentYear} PITTU PRASANTH,PRAKASH,PRAVEEN,SIVA,NISHANTH. All
+          <div>
+          <p>© {currentYear} PITTU PRASANTH<br/>PRAKASH<br/>PRAVEEN<br/>SIVA<br/>NISHANTH <br/>. All
           rights reserved.</p>
-          <p>Website designed and developed by my team and me</p>
+          <p>Website designed</p>
+          </div>
         </div>
         
       </div>
