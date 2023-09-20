@@ -26,8 +26,8 @@ const Footer = () => {
             </a>
             <FaBug className="bug-icon" />
           </div>
-          <div>
-            <img className="logo" src="./logo.png" alt="" />
+          <div className="logo1">
+            <img className="logo_img1" src="./logo.png" alt="" />
           </div>
           <p>Email: pittuprasanth14@gmail.com</p>
         </div>

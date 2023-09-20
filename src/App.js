@@ -222,7 +222,9 @@ function App() {
         <div>
           <h1 className="animate__animated animate__rubberBand custom-h1">
             WEATHER APP
-            <img className="logo" src="./logo.png"  alt="" />
+            <div className="logo">
+            <img className="logo_img" src="./logo.png"  alt="" />
+            </div>
           </h1>
           {/* Conditionally render the Search component based on the route */}
           <Routes>

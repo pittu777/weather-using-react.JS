@@ -52,10 +52,15 @@
   color: white;
 }
 
-.logo{
-  display: inline-block; /* Make sure the image is an inline-block element */
-    vertical-align: middle; /* Vertically align the image to the middle of the text */
-    width: 100px; /* Adjust the width as needed */
-    height: auto; /* Maintain the aspect ratio */
-    margin-left: 10px; /* Add some space between the text and the logo */
+.logo {
+  display: inline-block;
+  vertical-align: middle; /* Aligns the logo vertically with text */
+}
+
+/* Style for the logo image */
+.logo_img {
+  width: 1.5em; /* Increase the width to make it larger */
+  height: 1.5em; /* Increase the height to make it larger */
+  margin-left: 0.2em; /* Adjust the margin as needed for spacing */
+  vertical-align: middle; /* Aligns the image vertically with text */
 }

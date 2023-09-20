@@ -134,3 +134,16 @@ body {
     }
 }
 
+.logo1 {
+    display: inline-block;
+    vertical-align: middle; /* Aligns the logo vertically with text */
+  }
+  
+  /* Style for the logo image */
+  .logo_img1 {
+    display: inline-block; /* Make sure the image is an inline-block element */
+    vertical-align: middle; /* Vertically align the image to the middle of the text */
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    margin-left: 10px; /* Add some space between the text and the logo */
+  }
