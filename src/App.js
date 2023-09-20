@@ -169,6 +169,7 @@ import MapForcaste from "./components/forecast/MapForcast";
 import Developer from "./components/Developers/Developers";
 import ContactForm from "./components/footer/ContactForm";
 
+
 function App() {
   // Initialize state variables
   const [currentWeatherData, setCurrentWeatherData] = React.useState(null);
@@ -221,6 +222,7 @@ function App() {
         <div>
           <h1 className="animate__animated animate__rubberBand custom-h1">
             WEATHER APP
+            <img className="logo" src="./logo.png"  alt="" />
           </h1>
           {/* Conditionally render the Search component based on the route */}
           <Routes>
