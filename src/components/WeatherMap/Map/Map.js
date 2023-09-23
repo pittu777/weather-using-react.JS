@@ -5,7 +5,7 @@ import WeatherMap from "../WeatherMap";
 import "leaflet/dist/leaflet.css";
 import "./../../search/search.css";
 import "animate.css";
-import logo from "./../../forecast/logo-map1.png"
+import logo from "./../../forecast/images/logo-map1.png"
 
 const Map = ({ location, searchTime }) => {
   const { city, lat, lon } = location;

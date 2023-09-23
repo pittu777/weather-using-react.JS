@@ -57,6 +57,7 @@ function MapForcaste({ selectedCity }) {
       <Footer />
 
       <span className="attribution-container">Made with ReactJS</span>
+      <img className="logo_img" src="./logo192.png" alt="" />
     </div>
   );
 }
