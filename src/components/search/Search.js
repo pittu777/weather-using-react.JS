@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 import "./search.css";
@@ -10,6 +10,7 @@ const Search = ({ onSearchChange }) => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0); // Track scroll progress
   const loadingBarRef = React.useRef(null);
 
   // Function to load city options
@@ -80,13 +81,34 @@ const Search = ({ onSearchChange }) => {
     setIsOnline(navigator.onLine);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("online", handleOnlineStatusChange);
     window.addEventListener("offline", handleOnlineStatusChange);
 
     return () => {
       window.removeEventListener("online", handleOnlineStatusChange);
       window.removeEventListener("offline", handleOnlineStatusChange);
+    };
+  }, []);
+
+  const updateScrollProgress = () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const maxScroll = documentHeight - windowHeight;
+    const progress = (scrollY / maxScroll) * 100;
+    setScrollProgress(progress);
+  };
+
+  useEffect(() => {
+    window.addEventListener("online", handleOnlineStatusChange);
+    window.addEventListener("offline", handleOnlineStatusChange);
+    window.addEventListener("scroll", updateScrollProgress); // Add scroll event listener
+
+    return () => {
+      window.removeEventListener("online", handleOnlineStatusChange);
+      window.removeEventListener("offline", handleOnlineStatusChange);
+      window.removeEventListener("scroll", updateScrollProgress); // Remove scroll event listener
     };
   }, []);
 
@@ -110,12 +132,19 @@ const Search = ({ onSearchChange }) => {
         isDisabled={!isOnline}
       />
       {isLoading && (
-        
         <div className="loading-indicator">
           <div>
-          <img src="./loader.gif" alt="" />
-          <p>Fetching data...</p>
+            <img src="./loader.gif" alt="" />
+            <p>Fetching data...</p>
           </div>
+        </div>
+      )}
+      {scrollProgress > 0 && (
+        <div className="scroll-loader">
+          <div
+            className="scroll-loader-progress"
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
         </div>
       )}
       <LoadingBar ref={loadingBarRef} color="green" height={4} />

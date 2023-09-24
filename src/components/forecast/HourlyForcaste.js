@@ -19,6 +19,7 @@ function Hourly({ city, apiKey, searchTime }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [cityNotFound, setCityNotFound] = useState(false);
   const [activeBox, setActiveBox] = useState(null);
+  const [scrollProgress, setScrollProgress] = useState(0); // Track scroll progress
   const [isLoading, setIsLoading] = useState(true); // Added isLoading state
 
   const loadingBarRef = React.useRef(null);
@@ -59,6 +60,23 @@ function Hourly({ city, apiKey, searchTime }) {
         setIsLoading(false); // Set loading to false in case of an error
       });
   }, [city, apiKey]);
+
+  const updateScrollProgress = () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const maxScroll = documentHeight - windowHeight;
+    const progress = (scrollY / maxScroll) * 100;
+    setScrollProgress(progress);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", updateScrollProgress); // Add scroll event listener
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollProgress); // Remove scroll event listener
+    };
+  }, []);
 
   const handleBoxClick = (index) => {
     setActiveBox(index === activeBox ? null : index);
@@ -163,6 +181,14 @@ function Hourly({ city, apiKey, searchTime }) {
             </div>
           </div>
         </>
+      )}
+      {scrollProgress > 0 && (
+        <div className="scroll-loader">
+          <div
+            className="scroll-loader-progress"
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
+        </div>
       )}
     </div>
   );

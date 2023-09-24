@@ -60,3 +60,22 @@
     width: 85%;
   }
 }
+
+
+/* Container for the scroll loader */
+.scroll-loader {
+  position: fixed; /* Fixed position so it stays at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px; /* Height of the loader bar */
+  background-color: #ccc; /* Background color of the loader bar */
+  z-index: 9999; /* Ensure it appears above other content */
+}
+
+/* Progress bar inside the scroll loader */
+.scroll-loader-progress {
+  height: 100%; /* Full height of the loader bar */
+  background-color: green; /* Color of the progress bar */
+  transition: width 0.3s ease; /* Smooth width transition animation */
+}
