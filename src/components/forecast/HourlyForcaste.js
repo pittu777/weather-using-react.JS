@@ -105,7 +105,7 @@ function Hourly({ city, apiKey, searchTime }) {
       </h1>
       {isLoading ? (
         // Show a loading message instead of skeleton loading
-        <div className="loading-indicator">
+        <div className="loading-indicator1">
           <div>
             <img src={loadingGif} alt="" />
             <p>Fetching data...</p>
