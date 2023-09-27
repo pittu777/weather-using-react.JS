@@ -132,6 +132,24 @@
   color: #212121;
 }
 
+.daily-item-container {
+  position: relative;
+}
+
+
+
+.loading-indicator-label div {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.loading-indicator-label img {
+  max-width: 30px;
+}
+
+
+
 /* hourly */
 /* don't add .hourly-container1 */
 /* CSS for Hourly Weather Forecast */
@@ -293,8 +311,6 @@
   }
 }
 
-
-
 .loading-indicator1 {
   display: flex;
   justify-content: center;
@@ -317,3 +333,4 @@
 .loading-indicator1 img {
   max-width: 50px;
 }
+

@@ -113,7 +113,7 @@ function App() {
                       </div>
                     ) : null}
                   </nav>
-                  {forecastData && <Forecast data={forecastData} />}
+                  {forecastData && <Forecast data={forecastData} isLoading={isLoading} />}
                   {selectedCity && <MapForcaste selectedCity={selectedCity} />}
                 </>
               }
