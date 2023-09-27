@@ -136,13 +136,22 @@
   position: relative;
 }
 
+.loading-indicator-label div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
 
-
+/* 
 .loading-indicator-label div {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
+  justify-content: center; 
   align-items: center; 
-}
+} */
 
 .loading-indicator-label img {
   max-width: 30px;

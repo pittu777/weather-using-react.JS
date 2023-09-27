@@ -113,6 +113,8 @@ function CurrentWeather({ data, isLoading }) {
           </Link>
         </div>
       </div>
+
+      
     </>
   );
 }
