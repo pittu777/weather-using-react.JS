@@ -6,6 +6,8 @@
     background-color: #333;
     margin: 20px auto 0 auto;
     padding: 0 20px 20px 20px;
+
+   
 }
 .top,
 .bottom {
@@ -54,3 +56,24 @@
     font-weight: 600;
     font-size: 12px;
 }
+.fetching-data{
+    margin: 66px;
+}
+.loading-indicator2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  
+  .loading-indicator2 img {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+  }
+  
+  .fetching-data {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 10px;
+  }

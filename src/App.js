@@ -21,9 +21,11 @@ function App() {
   const [forecastData, setForecastData] = React.useState(null);
   const [searchTime, setSearchTime] = React.useState("");
   const [selectedCity, setSelectedCity] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   // Function to handle search change
   const handleOnSearchChange = (searchdata) => {
+    setIsLoading(true);
     setSelectedCity(searchdata);
     const [lat, lon] = searchdata.value.split(" ");
 
@@ -54,8 +56,10 @@ function App() {
         // Set the searchTime state with the current time
         const currentTime = new Date().toLocaleTimeString("en-US");
         setSearchTime(currentTime);
+        setIsLoading(false);
       })
       .catch((err) => {
+        setIsLoading(false);
         console.log(err);
       });
   };
@@ -92,9 +96,12 @@ function App() {
               path="/"
               element={
                 <>
-                  {currentWeatherData && (
-                    <CurrentWeather data={currentWeatherData} />
-                  )}
+                  {currentWeatherData ? (
+                    <CurrentWeather
+                      data={currentWeatherData}
+                      isLoading={isLoading}
+                    />
+                  ) : null}
                   <nav>
                     {currentWeatherData ? (
                       <div>

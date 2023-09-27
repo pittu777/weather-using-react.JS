@@ -9,7 +9,7 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [searchTime, setSearchTime] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0); // Track scroll progress
   const loadingBarRef = React.useRef(null);
 
@@ -58,7 +58,7 @@ const Search = ({ onSearchChange }) => {
   // Function to handle search change
   const handleOnChange = async (searchData) => {
     setSearch(searchData);
-    setIsLoading(true); // Set loading to true when fetching data
+    // setIsLoading(true); // Set loading to true when fetching data
     loadingBarRef.current.continuousStart(); // Start the loading bar
 
     // Assuming the selected value is in the format "latitude longitude"
@@ -71,7 +71,7 @@ const Search = ({ onSearchChange }) => {
     } catch (error) {
       console.error("Error fetching time data:", error);
     } finally {
-      setIsLoading(false); // Set loading back to false after fetching data
+      // setIsLoading(false); // Set loading back to false after fetching data
       loadingBarRef.current.complete(); // Complete the loading bar
     }
   };
@@ -131,14 +131,15 @@ const Search = ({ onSearchChange }) => {
         loadOptions={loadOptions}
         isDisabled={!isOnline}
       />
-      {isLoading && (
+      {/* {isLoading && (
         <div className="loading-indicator">
           <div>
             <img src="./loader.gif" alt="" />
             <p>Fetching data...</p>
           </div>
         </div>
-      )}
+        
+      )} */}
       {scrollProgress > 0 && (
         <div className="scroll-loader">
           <div
