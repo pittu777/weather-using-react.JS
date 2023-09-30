@@ -15,6 +15,8 @@ function Forecast({ data, isLoading }) {
     "Saturday",
   ];
 
+  console.log(data);
+
   // Replace the current day with "Today" in the forecatDays array.
   const forecatDays = [
     "Today",

@@ -78,5 +78,5 @@
 .scroll-loader-progress {
   height: 100%; /* Full height of the loader bar */
   background-color: red; /* Color of the progress bar */
-  transition: width 0.3s ease; /* Smooth width transition animation */
+  transition: width 0.0s ease; /* Smooth width transition animation */
 }
