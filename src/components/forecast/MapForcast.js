@@ -54,6 +54,7 @@ function MapForcaste({ selectedCity }) {
         ></iframe>
       </div>
       <div className="for-gap-purpose"></div>
+      <h1 className="title">Social Media</h1>
 
       
       {/* <Footer /> */}
