@@ -107,7 +107,10 @@ function Hourly({ city, apiKey, searchTime }) {
         // Show a loading message instead of skeleton loading
         <div className="loading-indicator1">
           <div>
-            <img src="https://www.ilovepdf.com/img/svg_icons/preload.svg" alt="" />
+            <img
+              src="https://www.ilovepdf.com/img/svg_icons/preload.svg"
+              alt=""
+            />
             <p>Fetching data...</p>
           </div>
         </div>

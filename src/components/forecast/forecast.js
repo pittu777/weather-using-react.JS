@@ -17,7 +17,6 @@ function Forecast({ data, isLoading }) {
 
   // console.log(data);
 
- 
   const forecatDays = [
     "Today",
     ...allWeekDays.slice(currentDayIndex + 1),
@@ -46,7 +45,10 @@ function Forecast({ data, isLoading }) {
               <div className="daily-item" onClick={() => toggleItem(idx)}>
                 {idx > 0 && loadingStates[idx] && (
                   <div className="loading-indicator-label">
-                    <img src="https://www.ilovepdf.com/img/svg_icons/preload.svg" alt="Loading..." />
+                    <img
+                      src="https://www.ilovepdf.com/img/svg_icons/preload.svg"
+                      alt="Loading..."
+                    />
                     <p className="fetching-data">Fetching data...</p>
                   </div>
                 )}

@@ -3,7 +3,7 @@ import "./forecast.css";
 import queryString from "query-string";
 
 // import Footer from "../footer/footer";
-import {FooterWithSocialLinks} from "../footer/FooterWithSocialLinks"
+import { FooterWithSocialLinks } from "../footer/FooterWithSocialLinks";
 
 function MapForcaste({ selectedCity }) {
   const [coordinates, setCoordinates] = useState({ lat: 12.191, lon: 85.748 });
@@ -56,10 +56,8 @@ function MapForcaste({ selectedCity }) {
       <div className="for-gap-purpose"></div>
       <h1 className="title">Social Media</h1>
 
-      
       {/* <Footer /> */}
-      <FooterWithSocialLinks/>
-      
+      <FooterWithSocialLinks />
 
       <span className="attribution-container">Made with ReactJS</span>
       <img className="logo_img" src="./logo192.png" alt="" />

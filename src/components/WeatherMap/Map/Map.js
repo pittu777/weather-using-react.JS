@@ -5,7 +5,7 @@ import WeatherMap from "../WeatherMap";
 import "leaflet/dist/leaflet.css";
 import "./../../search/search.css";
 import "animate.css";
-import logo from "./../../forecast/images/logo-map1.png"
+import logo from "./../../forecast/images/logo-map1.png";
 
 const Map = ({ location, searchTime }) => {
   const { city, lat, lon } = location;
@@ -14,7 +14,12 @@ const Map = ({ location, searchTime }) => {
   return (
     <>
       <div>
-        <h2 className="time-info animate__animated animate__rubberBand" style={{ marginLeft: "auto" }}>{city} Map</h2>
+        <h2
+          className="time-info animate__animated animate__rubberBand"
+          style={{ marginLeft: "auto" }}
+        >
+          {city} Map
+        </h2>
         <p className="time-info animate__animated animate__rubberBand">
           Time in {city}: {searchTime}
         </p>
@@ -34,8 +39,7 @@ const Map = ({ location, searchTime }) => {
         </p> */}
         <span>powered by</span>
         <p className="body-3">
-          
-           <a href="https://leafletjs.com/" rel="noreferrer" target="_blank">
+          <a href="https://leafletjs.com/" rel="noreferrer" target="_blank">
             <img src={logo} alt="" width={150} height={30} loading="lazy" />
           </a>
         </p>

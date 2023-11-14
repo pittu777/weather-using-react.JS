@@ -10,7 +10,7 @@ import {
   FaInstagram,
   FaTwitter,
   FaBug,
-  FaPhone
+  FaPhone,
 } from "react-icons/fa";
 import Logo from "./images/logo1.png";
 
@@ -61,11 +61,7 @@ const Footer = () => {
             >
               <FaTwitter className="social-icon" />
             </a>
-            <a
-              href="/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/contact" target="_blank" rel="noopener noreferrer">
               <FaPhone className="social-icon" />
             </a>
             {/* Add more social media icons as needed */}
@@ -112,18 +108,23 @@ const Footer = () => {
                 <img src={time} alt="" width={150} height={30} loading="lazy" />
               </a>
             </p>
-            
-            
           </div>
           <div>
-          <p>© {currentYear} PITTU PRASANTH<br/>PRAKASH<br/>PRAVEEN<br/>SIVA<br/>NISHANTH <br/>. All
-          rights reserved.</p>
-          <p>Website designed</p>
+            <p>
+              © {currentYear} PITTU PRASANTH
+              <br />
+              PRAKASH
+              <br />
+              PRAVEEN
+              <br />
+              SIVA
+              <br />
+              NISHANTH <br />. All rights reserved.
+            </p>
+            <p>Website designed</p>
           </div>
         </div>
-        
       </div>
-      
     </footer>
   );
 };

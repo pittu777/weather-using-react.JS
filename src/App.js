@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./Api";
 import { FiArrowRight } from "react-icons/fi";
 import "./App.css";
 import "animate.css";
 import "leaflet/dist/leaflet.css";
-// import PopupMessage from "./components/PopUp/PopUp";
 import Hourly from "./components/forecast/HourlyForcaste";
 import Search from "./components/search/Search";
 import Forecast from "./components/forecast/forecast";
@@ -17,11 +16,11 @@ import ContactForm from "./components/footer/ContactForm";
 
 function App() {
   // Initialize state variables
-  const [currentWeatherData, setCurrentWeatherData] = React.useState(null);
-  const [forecastData, setForecastData] = React.useState(null);
-  const [searchTime, setSearchTime] = React.useState("");
-  const [selectedCity, setSelectedCity] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [currentWeatherData, setCurrentWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
+  const [searchTime, setSearchTime] = useState("");
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Function to handle search change
   const handleOnSearchChange = (searchdata) => {
@@ -113,7 +112,9 @@ function App() {
                       </div>
                     ) : null}
                   </nav>
-                  {forecastData && <Forecast data={forecastData} isLoading={isLoading} />}
+                  {forecastData && (
+                    <Forecast data={forecastData} isLoading={isLoading} />
+                  )}
                   {selectedCity && <MapForcaste selectedCity={selectedCity} />}
                 </>
               }
@@ -153,14 +154,23 @@ function App() {
           <Route path="/our team" element={<Developer />} />
         </Routes>
         <Routes>
-          <Route path="/Map" element={currentWeatherData && <Map location={currentWeatherData}
-                      city={currentWeatherData.city}
-                      lat={currentWeatherData.lat}
-                      lon={currentWeatherData.lon}
-                      temp={currentWeatherData}
-                      searchTime={searchTime}/>} />
+          <Route
+            path="/Map"
+            element={
+              currentWeatherData && (
+                <Map
+                  location={currentWeatherData}
+                  city={currentWeatherData.city}
+                  lat={currentWeatherData.lat}
+                  lon={currentWeatherData.lon}
+                  temp={currentWeatherData}
+                  searchTime={searchTime}
+                />
+              )
+            }
+          />
         </Routes>
-        
+
         <Routes>
           <Route path="/contact us" element={<ContactForm />}></Route>
         </Routes>

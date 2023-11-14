@@ -169,16 +169,32 @@ export function FooterWithSocialLinks() {
               <Typography variant="h5" className="mb-6">
                 <div className="flex gap-4  my-3 ">
                   {/* Use react-icons components */}
-                  <a href="https://www.facebook.com/groups/openweathermap/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.facebook.com/groups/openweathermap/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FaFacebook className="text-blue-500 " />
                   </a>
-                  <a href="https://twitter.com/OpenWeatherMap#:~:text=(%40OpenWeatherMap)%20%2F%20X" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://twitter.com/OpenWeatherMap#:~:text=(%40OpenWeatherMap)%20%2F%20X"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FaTwitter className="text-blue-500 " />
                   </a>
-                  <a href="https://www.instagram.com/openweathermap/?hl=en" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.instagram.com/openweathermap/?hl=en"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FaInstagram className="text-blue-500 " />
                   </a>
-                  <a href="https://uk.linkedin.com/company/openweathermap#:~:text=About%20us,data%20via%20light%2Dspeed%20APIs" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://uk.linkedin.com/company/openweathermap#:~:text=About%20us,data%20via%20light%2Dspeed%20APIs"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FaLinkedin className="text-blue-500 " />
                   </a>
                 </div>

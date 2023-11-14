@@ -115,17 +115,13 @@
 //         </div>
 //       </div>
 
-      
 //     </>
 //   );
 // }
 
 // export default CurrentWeather;
 
-
-// 
-
-
+//
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -170,8 +166,12 @@ function CurrentWeather({ data, isLoading }) {
         ) : (
           <div className="top">
             <div>
-              <p className="city font-semibold text-lg leading-none tracking-[1px] m-0">{data.city}</p>
-              <p className="weather-disc font-normal text-sm leading-none m-0">{data.weather[0].description}</p>
+              <p className="city font-semibold text-lg leading-none tracking-[1px] m-0">
+                {data.city}
+              </p>
+              <p className="weather-disc font-normal text-sm leading-none m-0">
+                {data.weather[0].description}
+              </p>
             </div>
             <img
               src={`icons/${data.weather[0].icon}.png`}
@@ -183,43 +183,81 @@ function CurrentWeather({ data, isLoading }) {
         <div className="bottom">
           {isLoading ? (
             <div className="loading-indicator2 flex flex-col items-center justify-center ml-[25px] mt-20">
-              <img className="w-10 h-10" src="https://www.ilovepdf.com/img/svg_icons/preload.svg" alt="" />
-              <p className="fetching-data m-[66px] font-normal text-sm mt-2.5">Fetching data...</p>
+              <img
+                className="w-10 h-10"
+                src="https://www.ilovepdf.com/img/svg_icons/preload.svg"
+                alt=""
+              />
+              <p className="fetching-data m-[66px] font-normal text-sm mt-2.5">
+                Fetching data...
+              </p>
             </div>
           ) : (
             <>
-              <p className="temperature font-semibold text-[80px] w-auto tracking-[-5px] mx-0 my-2.5">{Math.round(data.main.temp)}°C</p>
+              <p className="temperature font-semibold text-[80px] w-auto tracking-[-5px] mx-0 my-2.5">
+                {Math.round(data.main.temp)}°C
+              </p>
               <div className="details w-full pl-5">
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">Details</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    Details
+                  </span>
                 </div>
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">Feels like</span>
-                  <span className="parameter-value font-semibold text-xs">{Math.round(data.main.feels_like)}°C</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    Feels like
+                  </span>
+                  <span className="parameter-value font-semibold text-xs">
+                    {Math.round(data.main.feels_like)}°C
+                  </span>
                 </div>
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">Wind</span>
-                  <span className="parameter-value font-semibold text-xs">{data.wind.speed} m/s</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    Wind
+                  </span>
+                  <span className="parameter-value font-semibold text-xs">
+                    {data.wind.speed} m/s
+                  </span>
                 </div>
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">timezone</span>
-                  <span className="parameter-value font-semibold text-xs">{getTimeZoneOffset(data.timezone)} UTC</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    timezone
+                  </span>
+                  <span className="parameter-value font-semibold text-xs">
+                    {getTimeZoneOffset(data.timezone)} UTC
+                  </span>
                 </div>
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">sunrise</span>
-                  <span className="parameter-value font-semibold text-xs">{getLocalTime(data.timezone, data.sys.sunrise)}</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    sunrise
+                  </span>
+                  <span className="parameter-value font-semibold text-xs">
+                    {getLocalTime(data.timezone, data.sys.sunrise)}
+                  </span>
                 </div>
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">sunset</span>
-                  <span className="parameter-value font-semibold text-xs">{getLocalTime(data.timezone, data.sys.sunset)}</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    sunset
+                  </span>
+                  <span className="parameter-value font-semibold text-xs">
+                    {getLocalTime(data.timezone, data.sys.sunset)}
+                  </span>
                 </div>
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">Humidity</span>
-                  <span className="parameter-value font-semibold text-xs">{data.main.humidity}%</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    Humidity
+                  </span>
+                  <span className="parameter-value font-semibold text-xs">
+                    {data.main.humidity}%
+                  </span>
                 </div>
                 <div className="parameter-row">
-                  <span className="parameter-label text-left font-normal text-xs">Pressure</span>
-                  <span className="parameter-value font-semibold text-xs">{data.main.pressure} hPa</span>
+                  <span className="parameter-label text-left font-normal text-xs">
+                    Pressure
+                  </span>
+                  <span className="parameter-value font-semibold text-xs">
+                    {data.main.pressure} hPa
+                  </span>
                 </div>
               </div>
             </>
