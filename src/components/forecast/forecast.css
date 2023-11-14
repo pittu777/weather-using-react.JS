@@ -4,6 +4,9 @@
   margin-left: 20px;
 }
 /* Base styles for all devices */
+.for-gap-purpose{
+  margin: 15px 15px 15px 15px ;
+}
 
 .map-container {
   border-radius: 10px;

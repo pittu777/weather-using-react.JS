@@ -69,7 +69,7 @@ function App() {
       {/* Router setup */}
       <Router>
         <div>
-          <h1 className="animate__animated animate__rubberBand custom-h1">
+          <h1 className="global animate__animated animate__rubberBand text-center text-3xl font-bold text-center">
             WEATHER APP
             <div className="logo">
               <img className="logo_img" src="./logo.png" alt="" />
@@ -150,10 +150,16 @@ function App() {
 
         {/* Developer route */}
         <Routes>
-          <Route path="/Developer" element={<Developer />} />
+          <Route path="/our team" element={<Developer />} />
         </Routes>
         <Routes>
-          <Route path="/contact" element={<ContactForm />}></Route>
+          <Route path="/maps" element={<Map />} />
+        </Routes>
+        <Routes>
+          <Route path="/contact us" element={<ContactForm />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/Feedback" element={<ContactForm />}></Route>
         </Routes>
       </Router>
     </>

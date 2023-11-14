@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import "./forecast.css";
-import loaderGif from "./images/loader.gif";
+// import loaderGif from "./images/loader.gif";
 
 function Forecast({ data, isLoading }) {
   const currentDayIndex = new Date().getDay();
@@ -15,9 +15,9 @@ function Forecast({ data, isLoading }) {
     "Saturday",
   ];
 
-  console.log(data);
+  // console.log(data);
 
-  // Replace the current day with "Today" in the forecatDays array.
+ 
   const forecatDays = [
     "Today",
     ...allWeekDays.slice(currentDayIndex + 1),
@@ -46,7 +46,7 @@ function Forecast({ data, isLoading }) {
               <div className="daily-item" onClick={() => toggleItem(idx)}>
                 {idx > 0 && loadingStates[idx] && (
                   <div className="loading-indicator-label">
-                    <img src={loaderGif} alt="Loading..." />
+                    <img src="https://www.ilovepdf.com/img/svg_icons/preload.svg" alt="Loading..." />
                     <p className="fetching-data">Fetching data...</p>
                   </div>
                 )}

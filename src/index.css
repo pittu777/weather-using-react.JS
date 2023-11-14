@@ -9,9 +9,14 @@ body {
   text-align: center;
   margin-top: 0px;
 } */
-.custom-h1 {
+/*  */
+/* .custom-h1 {
   text-align: center;
   margin-top: 0;
+} */
+.custom-h1 {
+  @apply text-center mt-0;
+  font: bold;
 }
 
 code {

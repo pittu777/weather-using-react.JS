@@ -1,3 +1,4 @@
+/* 
 .weather {
     width: 300px;
     border-radius: 6px;
@@ -70,11 +71,68 @@
   
   .loading-indicator2 img {
     width: 40px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
-  }
+    /* height: 40px; Adjust the height as needed */
+  /* } */
   
-  .fetching-data {
+  /* .fetching-data { */
     font-weight: 400;
     font-size: 14px;
     margin-top: 10px;
+  /* } */ 
+
+
+  /*  */
+
+
+
+
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+
+.weather {
+    @apply w-[330px] shadow-[10px_-2px_20px_2px_rgb(0_0_0_0/_30%)] text-white bg-[#333] mt-5 mb-0 mx-auto pt-0 pb-5 px-5 rounded-md;
   }
+  .top,
+  .bottom {
+    @apply flex justify-between items-center;
+  }
+  .city {
+    @apply font-semibold text-lg leading-none tracking-[1px] m-0;
+  }
+  .weather-disc {
+    @apply font-normal text-sm leading-none m-0;
+  }
+  .weather-icon {
+    @apply w-[100px];
+  }
+  .temperature {
+    @apply font-semibold text-[80px] w-auto tracking-[-5px] mx-0 my-2.5;
+  }
+  .details {
+    @apply w-full pl-5;
+  }
+  .parameter-row {
+    @apply flex justify-between;
+  }
+  .parameter-label {
+    @apply text-left font-normal text-xs;
+  }
+  .parameter-value {
+    @apply font-semibold text-xs;
+    align-items: right;
+  }
+  .fetching-data {
+    @apply m-[66px] font-normal text-sm mt-2.5;
+  }
+  .loading-indicator2 {
+    @apply flex flex-col items-center justify-center ml-[25px] mt-20;
+  }
+  .loading-indicator2 img {
+    @apply w-10 h-10;
+    /* Adjust the width as needed */
+    /* Adjust the height as needed */
+  }
+  

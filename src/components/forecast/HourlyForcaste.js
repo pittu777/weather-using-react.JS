@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LoadingBar from "react-top-loading-bar";
 import NotFound from "./pageNot";
-import loadingGif from "./images/loader.gif";
+// import loadingGif from "./images/loader.gif";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import {
   WiCloud,
@@ -107,7 +107,7 @@ function Hourly({ city, apiKey, searchTime }) {
         // Show a loading message instead of skeleton loading
         <div className="loading-indicator1">
           <div>
-            <img src={loadingGif} alt="" />
+            <img src="https://www.ilovepdf.com/img/svg_icons/preload.svg" alt="" />
             <p>Fetching data...</p>
           </div>
         </div>
