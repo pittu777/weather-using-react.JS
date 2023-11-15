@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./back.css";
 import { Button } from "@material-tailwind/react";
 
+
 const BackButton = () => {
   const navigate = useNavigate();
 
@@ -14,9 +15,13 @@ const BackButton = () => {
     // <button className="button" onClick={handleBackButtonClick}>
     //   Back
     // </button>
-    <Button className="button" onClick={handleBackButtonClick}>
+    <>
+    <Button className="button" onClick={handleBackButtonClick} >
       back
     </Button>
+    
+    </>
+    
   );
 };
 

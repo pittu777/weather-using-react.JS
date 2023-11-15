@@ -13,12 +13,12 @@ import CurrentWeather from "./components/current-weather/current-weather";
 import MapForcaste from "./components/forecast/MapForcast";
 import Developer from "./components/Developers/Developers";
 import ContactForm from "./components/footer/ContactForm";
+import NotFound from "./components/forecast/pageNot";
 
 function App() {
   // Initialize state variables
   const [currentWeatherData, setCurrentWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
-  const [searchTime, setSearchTime] = useState("");
   const [selectedCity, setSelectedCity] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -52,9 +52,6 @@ function App() {
         });
         setForecastData({ city: searchdata.label, ...forecastResponse });
 
-        // Set the searchTime state with the current time
-        const currentTime = new Date().toLocaleTimeString("en-US");
-        setSearchTime(currentTime);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -65,7 +62,6 @@ function App() {
 
   return (
     <>
-      {/* Router setup */}
       <Router>
         <div>
           <h1 className="global animate__animated animate__rubberBand text-3xl font-bold text-center">
@@ -78,12 +74,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={
-                <Search
-                  onSearchChange={handleOnSearchChange}
-                  searchTime={searchTime}
-                />
-              }
+              element={<Search onSearchChange={handleOnSearchChange} />}
             />
             <Route path="/map" element={null} />
             <Route path="/weatherMap" element={null} />
@@ -130,7 +121,6 @@ function App() {
                       lat={currentWeatherData.lat}
                       lon={currentWeatherData.lon}
                       temp={currentWeatherData}
-                      searchTime={searchTime}
                     />
                   )}
                 </>
@@ -142,7 +132,6 @@ function App() {
                 <Hourly
                   city={currentWeatherData?.city}
                   apiKey={WEATHER_API_KEY}
-                  searchTime={searchTime}
                 />
               }
             />
@@ -154,30 +143,32 @@ function App() {
           <Route path="/our team" element={<Developer />} />
         </Routes>
         <Routes>
-          <Route
-            path="/Map"
-            element={
-              currentWeatherData && (
-                <Map
-                  location={currentWeatherData}
-                  city={currentWeatherData.city}
-                  lat={currentWeatherData.lat}
-                  lon={currentWeatherData.lon}
-                  temp={currentWeatherData}
-                  searchTime={searchTime}
-                />
-              )
-            }
-          />
-        </Routes>
-
-        <Routes>
           <Route path="/contact us" element={<ContactForm />}></Route>
         </Routes>
         <Routes>
           <Route path="/Feedback" element={<ContactForm />}></Route>
         </Routes>
-        <Link to="/faqs"></Link>
+        <Routes>
+          <Route path="/current conditions" element={<NotFound />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/weekly forecast" element={<NotFound />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/maps" element={<NotFound />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/mission" element={<NotFound />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/weather glossary" element={<NotFound />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/faqs" element={<NotFound />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/support" element={<NotFound />}></Route>
+        </Routes>
       </Router>
     </>
   );

@@ -4,9 +4,12 @@ import "./footer.css";
 import loading from "./images/loader.gif";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import BackButton from "../WeatherMap/BackButton/BackButton";
+// import BackButton from "../WeatherMap/BackButton/BackButton";
+import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const ContactForm = () => {
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -92,7 +95,12 @@ const ContactForm = () => {
         </button>
         <ToastContainer />
       </form>
-      <div>{<BackButton />}</div>
+      {/* <div>{<BackButton />}</div> */}
+      <Link to="/">
+      <Button className="button" >
+      back
+    </Button>
+    </Link>
     </div>
   );
 };

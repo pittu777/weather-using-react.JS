@@ -4,6 +4,8 @@ import { geoApiOptions, GEO_API_URL, apiKey } from "../../Api";
 import "./search.css";
 import LoadingBar from "react-top-loading-bar";
 
+
+
 const Search = ({ onSearchChange }) => {
   // Initialize state variables
   const [search, setSearch] = useState(null);
@@ -67,6 +69,7 @@ const Search = ({ onSearchChange }) => {
       const timezone = await fetchTimeZone(latitude, longitude);
       const currentTime = await fetchCurrentTime(timezone);
       setSearchTime(currentTime);
+      console.log('time set', currentTime)
       onSearchChange(searchData);
     } catch (error) {
       console.error("Error fetching time data:", error);
@@ -75,6 +78,7 @@ const Search = ({ onSearchChange }) => {
       loadingBarRef.current.complete(); // Complete the loading bar
     }
   };
+  
 
   // Function to handle online status change
   const handleOnlineStatusChange = () => {
@@ -122,6 +126,8 @@ const Search = ({ onSearchChange }) => {
           Time in {search.label}: {searchTime}
         </p>
       )}
+      
+      
       <AsyncPaginate
         className="input"
         placeholder="Search for city"
@@ -131,6 +137,7 @@ const Search = ({ onSearchChange }) => {
         loadOptions={loadOptions}
         isDisabled={!isOnline}
       />
+      
       {/* {isLoading && (
         <div className="loading-indicator">
           <div>

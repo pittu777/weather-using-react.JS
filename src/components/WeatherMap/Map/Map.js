@@ -5,11 +5,49 @@ import WeatherMap from "../WeatherMap";
 import "leaflet/dist/leaflet.css";
 import "./../../search/search.css";
 import "animate.css";
+import { apiKey } from "../../../Api";
 import logo from "./../../forecast/images/logo-map1.png";
 
-const Map = ({ location, searchTime }) => {
+const Map = ({ location }) => {
   const { city, lat, lon } = location;
-  console.log("time :" + searchTime);
+  const [time, setTime] = React.useState("");
+
+  // Function to fetch current time
+  const fetchCurrentTime = (timezone) => {
+    const currentTime = new Date().toLocaleString("en-US", {
+      timeZone: timezone,
+    });
+    return currentTime;
+  };
+
+  // Function to fetch time zone
+  const fetchTimeZone = (latitude, longitude) => {
+    const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${latitude}&lng=${longitude}`;
+
+    return fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "OK") {
+          return data.zoneName;
+        } else {
+          throw new Error("Failed to fetch time zone data");
+        }
+      });
+  };
+
+  React.useEffect(() => {
+    const fetchTimeData = async () => {
+      try {
+        const timezone = await fetchTimeZone(lat, lon);
+        const currentTime = await fetchCurrentTime(timezone);
+        setTime(currentTime);
+      } catch (error) {
+        console.error("Error fetching time data:", error);
+      }
+    };
+
+    fetchTimeData();
+  }, [lat, lon]);
 
   return (
     <>
@@ -21,8 +59,9 @@ const Map = ({ location, searchTime }) => {
           {city} Map
         </h2>
         <p className="time-info animate__animated animate__rubberBand">
-          Time in {city}: {searchTime}
+          Time in {city}: {time}
         </p>
+
         <WeatherMap city={city} lat={lat} lon={lon} />
       </div>
       <div>
@@ -31,12 +70,6 @@ const Map = ({ location, searchTime }) => {
         </Link>
       </div>
       <div className="p-container">
-        {/* <p className="p-tag">
-          provided by{" "}
-          <span>
-            <a href="https://leafletjs.com/">leaflet</a>
-          </span>
-        </p> */}
         <span>powered by</span>
         <p className="body-3">
           <a href="https://leafletjs.com/" rel="noreferrer" target="_blank">
